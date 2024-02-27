@@ -5,6 +5,6 @@ var Graphics = function(xPos, yPos, scale, type){
     this.type = type;
     RED = 'rbg(255,0,0)'
 }
-var drawRedSqare = function(){
+Graphics.prototype.drawRedSquare = function(){
     return [[RED]*16]*16;
 }

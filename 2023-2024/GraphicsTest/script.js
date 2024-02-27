@@ -1,3 +1,4 @@
+
 const canvas = document.querySelector('.myCanvas');
 const width = canvas.width = window.innerWidth - 20;
 const height = canvas.height = window.innerHeight - 20;
@@ -19,16 +20,6 @@ var scoreMultiplier = 1.4;
 var state = 0;
 var curKeyLetter = String.fromCharCode(curKey).toLowerCase();
 var pastKeyLetter = String.fromCharCode(curKey).toLowerCase();
-var curWord = "";
-var score = 0;
-var posY = 0;
-var numOfBlocks = 0;
-var timer = 90;
-var uTimer = 90;
-var arrOfBlocks = [];
-var log = [];
-var attemptNum = 1;
-var speedMod = 4;
 
 //Class for functions that require long if statements
 var UsefulFunctions = function(tester) {
@@ -40,107 +31,8 @@ UsefulFunctions.prototype.getTime = function() {
   return (curTime);
 }
 UsefulFunctions.prototype.resetGame = function() {
-  curWord = "";
-  score = 0;
-  posY = 0;
-  numOfBlocks = 0;
-  arrOfBlocks = [];
-  timer = uTimer;
-  startTime = this.getTime();
 }
-//Converts a letter to the corrosponding column
-UsefulFunctions.prototype.convertToasdfjkl = function(letter) {
-  if (letter == "a") {
-    return (0)
-  }
-  if (letter == "s") {
-    return (1)
-  }
-  if (letter == "d") {
-    return (2)
-  }
-  if (letter == "f") {
-    return (3)
-  }
-  if (letter == "g") {
-    return (10)
-  }
-  if (letter == "j") {
-    return (4)
-  }
-  if (letter == "k") {
-    return (5)
-  }
-  if (letter == "l") {
-    return (6)
-  }
-  if (letter == ";") {
-    return (7)
-  }
-}
-UsefulFunctions.prototype.generateLetter = function(level) {
-  if (level == 0) {
-    randNum = Math.floor(Math.random() * 99);
-    if (randNum <= 7) {
-      return ("a");
-    } else if (randNum <= 9) {
-      return ("b");
-    } else if (randNum <= 13) {
-      return ("c");
-    } else if (randNum <= 17) {
-      return ("d");
-    } else if (randNum <= 28) {
-      return ("e");
-    } else if (randNum <= 29) {
-      return ("f");
-    } else if (randNum <= 32) {
-      return ("g");
-    } else if (randNum <= 35) {
-      return ("h");
-    } else if (randNum <= 44) {
-      return ("i");
-    } else if (randNum <= 45) {
-      return ("j");
-    } else if (randNum <= 46) {
-      return ("k");
-    } else if (randNum <= 51) {
-      return ("l");
-    } else if (randNum <= 53) {
-      return ("m");
-    } else if (randNum <= 60) {
-      return ("n");
-    } else if (randNum <= 66) {
-      return ("o");
-    } else if (randNum <= 69) {
-      return ("p");
-    } else if (randNum <= 70) {
-      return ("q");
-    } else if (randNum <= 77) {
-      return ("r");
-    } else if (randNum <= 85) {
-      return ("s");
-    } else if (randNum <= 91) {
-      return ("t");
-    } else if (randNum <= 94) {
-      return ("u");
-    } else if (randNum <= 95) {
-      return ("v");
-    } else if (randNum <= 96) {
-      return ("w");
-    } else if (randNum <= 97) {
-      return ("x");
-    } else if (randNum <= 98) {
-      return ("y");
-    } else if (randNum <= 99) {
-      return ("x");
-    } else {
-      return ("a");
-    }
-  }
-}
-UsefulFunctions.prototype.sortArr = function(a,b){
-	return(b[2]-a[2]);
-}
+
 //Initializes the class
 var usefulFunctions = new UsefulFunctions("test");
 //Creates button class
@@ -197,7 +89,7 @@ Button.prototype.checkClicked = function(isHovering, runFunc) {
     }
   }
 }
-var arrOfButtons = [new Button("Easy", width / 6, height * 3 / 9, width / 6, height / 9), new Button("Medium", width * 2.5 / 6, height * 3 / 9, width / 6, height / 9), new Button("Hard", width * 4 / 6, height * 3 / 9, width / 6, height / 9), new Button("About", width / 6, height * 5 / 9, width / 6, height / 9), new Button("Instructions", width * 2.5 / 6, height * 5 / 9, width / 6, height / 9), new Button("Leaderboard", width * 4 / 6, height * 5 / 9, width / 6, height / 9)]
+//var arrOfButtons = [new Button("Easy", width / 6, height * 3 / 9, width / 6, height / 9), new Button("Medium", width * 2.5 / 6, height * 3 / 9, width / 6, height / 9), new Button("Hard", width * 4 / 6, height * 3 / 9, width / 6, height / 9), new Button("About", width / 6, height * 5 / 9, width / 6, height / 9), new Button("Instructions", width * 2.5 / 6, height * 5 / 9, width / 6, height / 9), new Button("Leaderboard", width * 4 / 6, height * 5 / 9, width / 6, height / 9)]
 // update mouse pointer coordinates
 document.addEventListener("mousemove", (e) => {
   curX = e.pageX;
@@ -223,38 +115,8 @@ document.addEventListener("click", (e) => {
 });
 //Draws the lines and the keys
 var drawGameBackground = function() {
-  var letters = ["a", "s", "d", "f", "j", "k", "l", ";"]
-  for (var i = 0; i < 8; i++) {
-    if (i >= 4) {
-      ctx.fillStyle = 'rgb(0,0,0)';
-      ctx.lineWidth = 5;
-      ctx.strokeRect(width * i / 10 + width / 5, 0, width / 10, height)
-      ctx.fillStyle = "rgb(0, 0, 0, 0.25)";
-      ctx.fillRect(width * i / 10 + width / 5, height * 3 / 4, width / 10, height * 1 / 4);
-      if (usefulFunctions.convertToasdfjkl(curKeyLetter) == i) {
-        ctx.fillStyle = "rgb(255, 255, 255)";
-      } else {
-        ctx.fillStyle = "rgb(255, 255, 255, 0.25)";
-      }
-      ctx.font = (width / 11).toString() + "px georgia";
-      ctx.fillText(letters[i], width * i / 10 + (width / 11) / 2 + width / 5, height * 3 / 4 + (width / 11));
-      ctx.fillStyle = 'rgb(255,255,255)';
-    } else if (i < 4) {
-      ctx.fillStyle = 'rgb(0,0,0)';
-      ctx.lineWidth = 5;
-      ctx.strokeRect(width * i / 10, 0, width / 10, height)
-      ctx.fillStyle = "rgb(0, 0, 0, 0.25)";
-      ctx.fillRect(width * i / 10, height * 3 / 4, width / 10, height * 1 / 4);
-      if (usefulFunctions.convertToasdfjkl(curKeyLetter) == i) {
-        ctx.fillStyle = "rgb(255, 255, 255)";
-      } else {
-        ctx.fillStyle = "rgb(255, 255, 255, 0.25)";
-      }
-      ctx.font = (width / 11).toString() + "px georgia";
-      ctx.fillText(letters[i], width * i / 10 + (width / 11) / 2, height * 3 / 4 + (width / 11));
-      ctx.fillStyle = 'rgb(255,255,255)';
-    }
-  }
+  redSquare = new Graphics(30, 30, 30, 1);
+  
 }
 //Class for each letter block
 var FallingLetter = function(letter, xPos, yPos, column, size) {

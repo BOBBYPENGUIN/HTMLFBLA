@@ -7,15 +7,16 @@ var Graphics = function(xPos, yPos, scale, type){
     GREEN = "rgb(0,255,0)"
     BLACK = "rgb(0,0,0)"
     WHITE = "rgb(255,255,255)"
-    CLEAR = "rgb(255,255,255,1)"
+    CLEAR = "rgb(255,255,255,0)"
     SANDD = "rgb(194, 178, 128)"
+    TEALL = "rgb(0, 255, 255)"
     
 }
 Graphics.prototype.getCoordinates = function(){
     var positions = []
-    for(var row = 0; row < 16; row++){
+    for(var column = 0; column < 16; column++){
         var rowContents = []
-        for(var column = 0; column < 16; column++){
+        for(var row = 0; row < 16; row++){
             rowContents.push([this.xPos + row * this.scale, this.yPos + column * this.scale])
         }
         positions.push(rowContents);
@@ -66,12 +67,12 @@ Graphics.prototype.drawWhiteSquare = function(){
 }
 Graphics.prototype.drawPlayerHead = function(){
     var colors = [
-        [CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, BLACK, BLACK, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR],
-        [CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR],
-        [CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR],
-        [CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR],
-        [CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR],
-        [CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR],
+        [CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, BLACK, BLACK, BLACK, BLACK, BLACK, BLACK, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR],
+        [CLEAR, CLEAR, CLEAR, BLACK, BLACK, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, BLACK, BLACK, CLEAR, CLEAR, CLEAR],
+        [CLEAR, CLEAR, BLACK, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, BLACK, CLEAR, CLEAR],
+        [CLEAR, BLACK, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, BLACK, CLEAR],
+        [CLEAR, BLACK, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, BLACK, CLEAR],
+        [CLEAR, BLACK, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, BLACK, CLEAR],
         [CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR],
         [CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR],
         [CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR],

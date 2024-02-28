@@ -136,11 +136,11 @@ function draw() {
       ctx.fillRect(whiteSquare.getCoordinates()[row][column][0], whiteSquare.getCoordinates()[row][column][1], whiteSquare.scale, whiteSquare.scale);
     }
   }
-  var redSquare = new Graphics(30, 30, 5, 1);
+  var playerHead = new Graphics(30, 30, 5, 1);
   for(var row = 0; row < 16; row++){
     for(var column = 0; column < 16; column++){
-      ctx.fillStyle = redSquare.drawRedSquare()[row][column];
-      ctx.fillRect(redSquare.getCoordinates()[row][column][0], redSquare.getCoordinates()[row][column][1], redSquare.scale, redSquare.scale);
+      ctx.fillStyle = playerHead.drawPlayerHead()[row][column];
+      ctx.fillRect(playerHead.getCoordinates()[row][column][0], playerHead.getCoordinates()[row][column][1], playerHead.scale, playerHead.scale);
     }
   }
   if(clicked){

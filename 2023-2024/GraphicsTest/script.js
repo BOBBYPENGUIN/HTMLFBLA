@@ -129,10 +129,14 @@ function draw() {
   //ctx.fillStyle = "white";
   //ctx.fillStyle= "rgb(255,0,0)";
   //ctx.fillRect(200, 20, 20, 20);
-
+  var whiteSquare = new Graphics(30, 30, 5, 1);
+  for(var row = 0; row < 16; row++){
+    for(var column = 0; column < 16; column++){
+      ctx.fillStyle = whiteSquare.drawWhiteSquare()[row][column];
+      ctx.fillRect(whiteSquare.getCoordinates()[row][column][0], whiteSquare.getCoordinates()[row][column][1], whiteSquare.scale, whiteSquare.scale);
+    }
+  }
   var redSquare = new Graphics(30, 30, 5, 1);
-  console.log(redSquare.drawRedSquare()[0][0])
-  var square = redSquare.drawRedSquare();
   for(var row = 0; row < 16; row++){
     for(var column = 0; column < 16; column++){
       ctx.fillStyle = redSquare.drawRedSquare()[row][column];

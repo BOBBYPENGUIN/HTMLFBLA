@@ -140,7 +140,7 @@ function draw() {
     }
   }
   if(clicked){
-    console.log("Test")
+    console.log("Test1")
   }
   clicked = false;
   keyDown = false;

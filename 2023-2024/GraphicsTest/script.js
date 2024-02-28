@@ -139,7 +139,13 @@ function draw() {
       ctx.fillRect(redSquare.getCoordinates()[row][column][0], redSquare.getCoordinates()[row][column][1], redSquare.scale, redSquare.scale);
     }
   }
+<<<<<<< Updated upstream
 
+=======
+  if(clicked){
+    console.log("Test1")
+  }
+>>>>>>> Stashed changes
   clicked = false;
   keyDown = false;
   window.requestAnimationFrame(draw);

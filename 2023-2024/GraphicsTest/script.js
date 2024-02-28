@@ -117,19 +117,28 @@ document.addEventListener("click", (e) => {
 var drawGameBackground = function() {
   var redSquare = new Graphics(30, 30, 30, 1);
   var square = redSquare.drawRedSquare();
-  for(var i in square){
-      for(var a in i){
-        ctx.fillStyle(a);
-        ctx.fillRect(30, 30, 30, 30);
-      }
+  for(var row = 0; row < 16; row++){
+    for(var column = 0; column < 16; column++){
+      ctx.fillStyle = redSquare.drawRedSquare()[row][column];
+      ctx.fillRect(redSquare.getCoordinates()[row][column][0], redSquare.getCoordinates()[row][column[1]], redSquare.scale, redSquare.scale);
+    }
   }
 }
 //var possiblePositions = [0, width/10, width*2/10, width*3/10, width*6/10, width*7/10, width*8/10, width*9/10]
 function draw() {
   //ctx.fillStyle = "white";
-  ctx.fillStyle= "rgb(255,0,0)";
-  ctx.fillRect(20, 20, 20, 20);
-  drawGameBackground;
+  //ctx.fillStyle= "rgb(255,0,0)";
+  //ctx.fillRect(200, 20, 20, 20);
+
+  var redSquare = new Graphics(30, 30, 5, 1);
+  console.log(redSquare.drawRedSquare()[0][0])
+  var square = redSquare.drawRedSquare();
+  for(var row = 0; row < 16; row++){
+    for(var column = 0; column < 16; column++){
+      ctx.fillStyle = redSquare.drawRedSquare()[row][column];
+      ctx.fillRect(redSquare.getCoordinates()[row][column][0], redSquare.getCoordinates()[row][column][1], redSquare.scale, redSquare.scale);
+    }
+  }
 
   clicked = false;
   keyDown = false;

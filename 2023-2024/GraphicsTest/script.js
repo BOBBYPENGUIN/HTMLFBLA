@@ -139,7 +139,9 @@ function draw() {
       ctx.fillRect(redSquare.getCoordinates()[row][column][0], redSquare.getCoordinates()[row][column][1], redSquare.scale, redSquare.scale);
     }
   }
-
+  if(clicked){
+    console.log("Test")
+  }
   clicked = false;
   keyDown = false;
   window.requestAnimationFrame(draw);

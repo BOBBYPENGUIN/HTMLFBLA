@@ -13,6 +13,13 @@ var Graphics = function(xPos, yPos, scale, type){
     MOUTH = "rgb(239,192,182)" //Sienna
     
 }
+Graphics.prototype.getColors = function(){
+    if(this.type == 1){
+        return this.drawWhiteSquare();
+    } else if(this.type == 2){
+        return this.drawPlayerHead();
+    }
+}
 Graphics.prototype.getCoordinates = function(){
     var positions = []
     for(var column = 0; column < 16; column++){
@@ -82,8 +89,8 @@ Graphics.prototype.drawPlayerHead = function(){
         [CLEAR, BLACK, SANDD, SANDD, SANDD, MOUTH, SANDD, SANDD, SANDD, SANDD, MOUTH, SANDD, SANDD, SANDD, BLACK, CLEAR],
         [CLEAR, CLEAR, BLACK, SANDD, SANDD, SANDD, MOUTH, MOUTH, MOUTH, MOUTH, SANDD, SANDD, SANDD, BLACK, CLEAR, CLEAR],
         [CLEAR, CLEAR, BLACK, SANDD, SANDD, SANDD, SANDD, SANDD, SANDD, SANDD, SANDD, SANDD, SANDD, BLACK, CLEAR, CLEAR],
-        [CLEAR, CLEAR, CLEAR, BLACK, BLACK, BLACK, SANDD, SANDD, SANDD, SANDD, BLACK, BLACK, BLACK, CLEAR, CLEAR, CLEAR],
-        [CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, BLACK, BLACK, BLACK, BLACK, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR],
+        [CLEAR, CLEAR, CLEAR, BLACK, BLACK, SANDD, SANDD, SANDD, SANDD, SANDD, SANDD, BLACK, BLACK, CLEAR, CLEAR, CLEAR],
+        [CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, BLACK, BLACK, BLACK, BLACK, BLACK, BLACK, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR],
     ]
     return colors;
 }

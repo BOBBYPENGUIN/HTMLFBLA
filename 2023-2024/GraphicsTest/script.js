@@ -124,25 +124,22 @@ var drawGameBackground = function() {
     }
   }
 }
+var drawTile = function(tile){
+  for(var row = 0; row < 16; row++){
+    for(var column = 0; column < 16; column++){
+      ctx.fillStyle = tile.getColors()[row][column];
+      ctx.fillRect(tile.getCoordinates()[row][column][0], tile.getCoordinates()[row][column][1], tile.scale, tile.scale);
+    }
+  }
+}
 //var possiblePositions = [0, width/10, width*2/10, width*3/10, width*6/10, width*7/10, width*8/10, width*9/10]
 function draw() {
   //ctx.fillStyle = "white";
   //ctx.fillStyle= "rgb(255,0,0)";
   //ctx.fillRect(200, 20, 20, 20);
-  var whiteSquare = new Graphics(30, 30, 5, 1);
-  for(var row = 0; row < 16; row++){
-    for(var column = 0; column < 16; column++){
-      ctx.fillStyle = whiteSquare.drawWhiteSquare()[row][column];
-      ctx.fillRect(whiteSquare.getCoordinates()[row][column][0], whiteSquare.getCoordinates()[row][column][1], whiteSquare.scale, whiteSquare.scale);
-    }
-  }
-  var playerHead = new Graphics(30, 30, 5, 1);
-  for(var row = 0; row < 16; row++){
-    for(var column = 0; column < 16; column++){
-      ctx.fillStyle = playerHead.drawPlayerHead()[row][column];
-      ctx.fillRect(playerHead.getCoordinates()[row][column][0], playerHead.getCoordinates()[row][column][1], playerHead.scale, playerHead.scale);
-    }
-  }
+
+  var playerHead = new Graphics(30, 30, 5, 2);
+  drawTile(playerHead);
   if(clicked){
     console.log("Test")
   }

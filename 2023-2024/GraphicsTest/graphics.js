@@ -36,6 +36,10 @@ Graphics.prototype.getCoordinates = function(){
     }
     return positions;
 }
+Graphics.prototype.move = function(dx, dy){
+    this.xPos = this.xPos + dx;
+    this.yPos = this.yPos + dy;
+}
 Graphics.prototype.drawRedSquare = function(){
     var colors = [
         [REDDD, REDDD, REDDD, REDDD, REDDD, REDDD, REDDD, REDDD, REDDD, REDDD, REDDD, REDDD, REDDD, REDDD, REDDD, REDDD],

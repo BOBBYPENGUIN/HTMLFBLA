@@ -102,7 +102,9 @@ document.addEventListener("keypress", (e) => {
   keyDown = true;
 });
 document.addEventListener("keyup", (e) => {
-  curKeyLetter = "g";
+  curKeyLetter = "aa";
+  curKey = -1
+  keyDown = false;
 });
 document.addEventListener("mousedown", (e) => {
   mouseDown = true;
@@ -133,19 +135,39 @@ var drawTile = function(tile){
   }
 }
 //var possiblePositions = [0, width/10, width*2/10, width*3/10, width*6/10, width*7/10, width*8/10, width*9/10]
+var xPosition = 30;
+var yPosition = 30;
+var playerHead = new Graphics(xPosition, yPosition, 5, 2);
+var torso = new Graphics(xPosition, yPosition+5*16, 5, 3);
+var legs = new Graphics(xPosition, yPosition+160, 5, 4);
 function draw() {
-  //ctx.fillStyle = "white";
-  //ctx.fillStyle= "rgb(255,0,0)";
-  //ctx.fillRect(200, 20, 20, 20);
-
-  var playerHead = new Graphics(30, 30, 5, 2);
+  ctx.fillStyle = "white";
+  ctx.fillRect(0, 0, width, height);
   drawTile(playerHead);
-  var torso = new Graphics(30, 30+5*16, 5, 3);
   drawTile(torso)
-  var legs = new Graphics(30, 110+80, 5, 4);
   drawTile(legs)
-  if(clicked){
-    console.log("Test1")
+  if(curKey == 119){//W key
+    playerHead.move(0, -2);
+    torso.move(0, -2);
+    legs.move(0,-2);
+  }
+  if(curKey == 100){//D key
+    playerHead.move(2, 0);
+    torso.move(2, 0);
+    legs.move(2, 0);
+  }
+  if(curKey == 115){//S key
+    playerHead.move(0, 2);
+    torso.move(0, 2);
+    legs.move(0, 2);
+  }
+  if(curKey == 97){
+    playerHead.move(-2, 0);
+    torso.move(-2, 0);
+    legs.move(-2, 0);
+  }
+  if(keyDown){
+    console.log(curKey)
   }
   clicked = false;
   keyDown = false;

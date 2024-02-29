@@ -124,21 +124,26 @@ var drawGameBackground = function() {
     }
   }
 }
+var drawTile = function(tile){
+  for(var row = 0; row < 16; row++){
+    for(var column = 0; column < 16; column++){
+      ctx.fillStyle = tile.getColors()[row][column];
+      ctx.fillRect(tile.getCoordinates()[row][column][0], tile.getCoordinates()[row][column][1], tile.scale, tile.scale);
+    }
+  }
+}
 //var possiblePositions = [0, width/10, width*2/10, width*3/10, width*6/10, width*7/10, width*8/10, width*9/10]
 function draw() {
   //ctx.fillStyle = "white";
   //ctx.fillStyle= "rgb(255,0,0)";
   //ctx.fillRect(200, 20, 20, 20);
 
-  var redSquare = new Graphics(30, 30, 5, 1);
-  console.log(redSquare.drawRedSquare()[0][0])
-  var square = redSquare.drawRedSquare();
-  for(var row = 0; row < 16; row++){
-    for(var column = 0; column < 16; column++){
-      ctx.fillStyle = redSquare.drawRedSquare()[row][column];
-      ctx.fillRect(redSquare.getCoordinates()[row][column][0], redSquare.getCoordinates()[row][column][1], redSquare.scale, redSquare.scale);
-    }
-  }
+  var playerHead = new Graphics(30, 30, 5, 2);
+  drawTile(playerHead);
+  var torso = new Graphics(30, 30+5*16, 5, 3);
+  drawTile(torso)
+  var legs = new Graphics(30, 110+80, 5, 4);
+  drawTile(legs)
   if(clicked){
     console.log("Test1")
   }

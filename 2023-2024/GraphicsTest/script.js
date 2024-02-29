@@ -15,8 +15,7 @@ var startTime = theDate.getTime();
 var mouseDown = false;
 var clicked = false;
 var keyDown = false;
-var speed = height / 7 / 35;
-var scoreMultiplier = 1.4;
+var scale = 3;
 var state = 0;
 var curKeyLetter = String.fromCharCode(curKey).toLowerCase();
 var pastKeyLetter = String.fromCharCode(curKey).toLowerCase();
@@ -117,14 +116,20 @@ document.addEventListener("click", (e) => {
 });
 //Draws the lines and the keys
 var drawGameBackground = function() {
-  var redSquare = new Graphics(30, 30, 30, 1);
-  var square = redSquare.drawRedSquare();
-  for(var row = 0; row < 16; row++){
-    for(var column = 0; column < 16; column++){
-      ctx.fillStyle = redSquare.drawRedSquare()[row][column];
-      ctx.fillRect(redSquare.getCoordinates()[row][column][0], redSquare.getCoordinates()[row][column[1]], redSquare.scale, redSquare.scale);
+  for(var row = 0; row < width/scale; row++){
+    for(var column = 0; column < height/scale; height++){
+      grass = new Graphics(row * scale, column * scale, scale, 5);
+      drawTile(grass);
     }
   }
+} //creates grass
+var grass = []
+for(var column = 0; column < height/scale; column++){
+    var rowContents = []
+    for(var row = 0; row < width/scale; row++){
+        rowContents.push(new Graphics(row * this.scale * 16, column * this.scale * 16, scale, 5));
+    }
+    grass.push(rowContents);
 }
 var drawTile = function(tile){
   for(var row = 0; row < 16; row++){
@@ -137,12 +142,17 @@ var drawTile = function(tile){
 //var possiblePositions = [0, width/10, width*2/10, width*3/10, width*6/10, width*7/10, width*8/10, width*9/10]
 var xPosition = 30;
 var yPosition = 30;
-var playerHead = new Graphics(xPosition, yPosition, 5, 2);
-var torso = new Graphics(xPosition, yPosition+5*16, 5, 3);
-var legs = new Graphics(xPosition, yPosition+160, 5, 4);
+var playerHead = new Graphics(xPosition, yPosition, scale, 2);
+var torso = new Graphics(xPosition, yPosition+scale*16, scale, 3);
+var legs = new Graphics(xPosition, yPosition+scale*16*2, scale, 4);
 function draw() {
   ctx.fillStyle = "white";
   ctx.fillRect(0, 0, width, height);
+  for(var row in grass){
+    for(var g in row){
+      drawTile(g);
+    }
+  }
   drawTile(playerHead);
   drawTile(torso);
   drawTile(legs);
@@ -169,7 +179,7 @@ function draw() {
   if(keyDown){
     console.log(curKey);
   }
-  var grass = new Graphics(140, 30, 5, 5);
+  var grass = new Graphics(140, 30, scale, 5);
   drawTile(grass)
   if(clicked){
     console.log("Test1");

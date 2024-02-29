@@ -140,6 +140,10 @@ function draw() {
 
   var playerHead = new Graphics(30, 30, 5, 2);
   drawTile(playerHead);
+  var torso = new Graphics(30, 30+5*16, 5, 3);
+  drawTile(torso)
+  var legs = new Graphics(30, 110+80, 5, 4);
+  drawTile(legs)
   if(clicked){
     console.log("Test")
   }

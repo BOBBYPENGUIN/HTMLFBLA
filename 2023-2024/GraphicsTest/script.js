@@ -144,9 +144,8 @@ function draw() {
   ctx.fillStyle = "white";
   ctx.fillRect(0, 0, width, height);
   drawTile(playerHead);
-  drawTile(torso)
-  drawTile(legs)
-<<<<<<< Updated upstream
+  drawTile(torso);
+  drawTile(legs);
   if(curKey == 119){//W key
     playerHead.move(0, -2);
     torso.move(0, -2);
@@ -168,14 +167,12 @@ function draw() {
     legs.move(-2, 0);
   }
   if(keyDown){
-    console.log(curKey)
-=======
-
+    console.log(curKey);
+  }
   var grass = new Graphics(140, 30, 5, 5);
   drawTile(grass)
   if(clicked){
-    console.log("Test1")
->>>>>>> Stashed changes
+    console.log("Test1");
   }
   clicked = false;
   keyDown = false;

@@ -146,6 +146,7 @@ function draw() {
   drawTile(playerHead);
   drawTile(torso)
   drawTile(legs)
+<<<<<<< Updated upstream
   if(curKey == 119){//W key
     playerHead.move(0, -2);
     torso.move(0, -2);
@@ -168,6 +169,13 @@ function draw() {
   }
   if(keyDown){
     console.log(curKey)
+=======
+
+  var grass = new Graphics(140, 30, 5, 5);
+  drawTile(grass)
+  if(clicked){
+    console.log("Test1")
+>>>>>>> Stashed changes
   }
   clicked = false;
   keyDown = false;

@@ -10,6 +10,7 @@ ctx.fillRect(0, 0, width, height);
 var curX;
 var curY;
 var curKey;
+var keys = [];
 var theDate = new Date();
 var startTime = theDate.getTime();
 var mouseDown = false;
@@ -97,10 +98,12 @@ document.addEventListener("mousemove", (e) => {
 //Listens for keypresses
 document.addEventListener("keypress", (e) => {
   curKey = e.keyCode;
+  keys[e.key] = true;
   curKeyLetter = String.fromCharCode(curKey).toLowerCase();
   keyDown = true;
 });
 document.addEventListener("keyup", (e) => {
+  keys[e.key] = false;
   curKeyLetter = "aa";
   curKey = -1
   keyDown = false;
@@ -124,12 +127,13 @@ var drawGameBackground = function() {
   }
 } //creates grass
 var grass = []
-for(var column = 0; column < height/scale; column++){
-    var rowContents = []
-    for(var row = 0; row < width/scale; row++){
-        rowContents.push(new Graphics(row * this.scale * 16, column * this.scale * 16, scale, 5));
-    }
-    grass.push(rowContents);
+//grass.push(new Graphics(200, 200, 5, 5))
+for(var i = 0; i < 20; i++){
+  var rowTiles = []
+  for(var j = 0; j < 20; j++){
+    rowTiles.push(new Graphics(i*scale*16, j * scale*16, scale, 5))
+  }
+  grass.push(rowTiles)
 }
 var drawTile = function(tile){
   for(var row = 0; row < 16; row++){
@@ -145,33 +149,35 @@ var yPosition = 30;
 var playerHead = new Graphics(xPosition, yPosition, scale, 2);
 var torso = new Graphics(xPosition, yPosition+scale*16, scale, 3);
 var legs = new Graphics(xPosition, yPosition+scale*16*2, scale, 4);
+
 function draw() {
   ctx.fillStyle = "white";
-  ctx.fillRect(0, 0, width, height);
-  for(var row in grass){
-    for(var g in row){
-      drawTile(g);
+  //ctx.fillRect(0, 0, width, height);
+  var nGrass = new Graphics(0, 0, 20, 5);
+  for(var i = 0; i < grass.length; i++){
+    for(var j = 0; j < grass[i].length; j++){
+      drawTile(grass[i][j])
     }
   }
   drawTile(playerHead);
   drawTile(torso);
   drawTile(legs);
-  if(curKey == 119){//W key
+  if(keys["w"]){//W key
     playerHead.move(0, -2);
     torso.move(0, -2);
     legs.move(0,-2);
   }
-  if(curKey == 100){//D key
+  if(keys["d"]){//D key
     playerHead.move(2, 0);
     torso.move(2, 0);
     legs.move(2, 0);
   }
-  if(curKey == 115){//S key
+  if(keys["s"]){//S key
     playerHead.move(0, 2);
     torso.move(0, 2);
     legs.move(0, 2);
   }
-  if(curKey == 97){
+  if(keys["a"]){//A Key
     playerHead.move(-2, 0);
     torso.move(-2, 0);
     legs.move(-2, 0);
@@ -179,8 +185,8 @@ function draw() {
   if(keyDown){
     console.log(curKey);
   }
-  var grass = new Graphics(140, 30, scale, 5);
-  drawTile(grass)
+  //var grass = new Graphics(140, 30, scale, 5);
+  //drawTile(grass)
   if(clicked){
     console.log("Test1");
   }

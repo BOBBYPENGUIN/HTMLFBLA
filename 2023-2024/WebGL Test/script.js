@@ -10,13 +10,13 @@ ctx.fillRect(0, 0, width, height);
 var curX;
 var curY;
 var curKey;
+var keys = [];
 var theDate = new Date();
 var startTime = theDate.getTime();
 var mouseDown = false;
 var clicked = false;
 var keyDown = false;
-var speed = height / 7 / 35;
-var scoreMultiplier = 1.4;
+var scale = 3;
 var state = 0;
 var curKeyLetter = String.fromCharCode(curKey).toLowerCase();
 var pastKeyLetter = String.fromCharCode(curKey).toLowerCase();
@@ -98,10 +98,12 @@ document.addEventListener("mousemove", (e) => {
 //Listens for keypresses
 document.addEventListener("keypress", (e) => {
   curKey = e.keyCode;
+  keys[e.key] = true;
   curKeyLetter = String.fromCharCode(curKey).toLowerCase();
   keyDown = true;
 });
 document.addEventListener("keyup", (e) => {
+  keys[e.key] = false;
   curKeyLetter = "aa";
   curKey = -1
   keyDown = false;
@@ -117,16 +119,12 @@ document.addEventListener("click", (e) => {
 });
 //Draws the lines and the keys
 var drawGameBackground = function() {
-  var redSquare = new Graphics(30, 30, 30, 1);
-  var square = redSquare.drawRedSquare();
-  for(var row = 0; row < 16; row++){
-    for(var column = 0; column < 16; column++){
-      ctx.fillStyle = redSquare.drawRedSquare()[row][column];
-      ctx.fillRect(redSquare.getCoordinates()[row][column][0], redSquare.getCoordinates()[row][column[1]], redSquare.scale, redSquare.scale);
+  for(var row = 0; row < width/scale; row++){
+    for(var column = 0; column < height/scale; height++){
+      grass = new Graphics(row * scale, column * scale, scale, 5);
+      drawTile(grass);
     }
   }
-<<<<<<< Updated upstream
-=======
 } //creates grass
 var grass = []
 //grass.push(new Graphics(200, 200, 5, 5))
@@ -136,7 +134,6 @@ for(var i = 0; i < 10; i++){
     rowTiles.push(new Graphics(i*scale*16, j * scale*16, scale, 5))
   }
   grass.push(rowTiles)
->>>>>>> Stashed changes
 }
 var drawTile = function(tile){
   for(var row = 0; row < 16; row++){
@@ -149,37 +146,49 @@ var drawTile = function(tile){
 //var possiblePositions = [0, width/10, width*2/10, width*3/10, width*6/10, width*7/10, width*8/10, width*9/10]
 var xPosition = 30;
 var yPosition = 30;
-var playerHead = new Graphics(xPosition, yPosition, 5, 2);
-var torso = new Graphics(xPosition, yPosition+5*16, 5, 3);
-var legs = new Graphics(xPosition, yPosition+160, 5, 4);
+var playerHead = new Graphics(xPosition, yPosition, scale, 2);
+var torso = new Graphics(xPosition, yPosition+scale*16, scale, 3);
+var legs = new Graphics(xPosition, yPosition+scale*16*2, scale, 4);
+
 function draw() {
   ctx.fillStyle = "white";
-  ctx.fillRect(0, 0, width, height);
+  //ctx.fillRect(0, 0, width, height);
+  var nGrass = new Graphics(0, 0, 20, 5);
+  for(var i = 0; i < grass.length; i++){
+    for(var j = 0; j < grass[i].length; j++){
+      drawTile(grass[i][j])
+    }
+  }
   drawTile(playerHead);
-  drawTile(torso)
-  drawTile(legs)
-  if(curKey == 119){//W key
+  drawTile(torso);
+  drawTile(legs);
+  if(keys["w"]){//W key
     playerHead.move(0, -2);
     torso.move(0, -2);
     legs.move(0,-2);
   }
-  if(curKey == 100){//D key
+  if(keys["d"]){//D key
     playerHead.move(2, 0);
     torso.move(2, 0);
     legs.move(2, 0);
   }
-  if(curKey == 115){//S key
+  if(keys["s"]){//S key
     playerHead.move(0, 2);
     torso.move(0, 2);
     legs.move(0, 2);
   }
-  if(curKey == 97){
+  if(keys["a"]){//A Key
     playerHead.move(-2, 0);
     torso.move(-2, 0);
     legs.move(-2, 0);
   }
   if(keyDown){
-    console.log(curKey)
+    console.log(curKey);
+  }
+  //var grass = new Graphics(140, 30, scale, 5);
+  //drawTile(grass)
+  if(clicked){
+    console.log("Test1");
   }
   clicked = false;
   keyDown = false;

@@ -125,8 +125,6 @@ var drawGameBackground = function() {
       ctx.fillRect(redSquare.getCoordinates()[row][column][0], redSquare.getCoordinates()[row][column[1]], redSquare.scale, redSquare.scale);
     }
   }
-<<<<<<< Updated upstream
-=======
 } //creates grass
 var grass = []
 //grass.push(new Graphics(200, 200, 5, 5))
@@ -136,7 +134,6 @@ for(var i = 0; i < 10; i++){
     rowTiles.push(new Graphics(i*scale*16, j * scale*16, scale, 5))
   }
   grass.push(rowTiles)
->>>>>>> Stashed changes
 }
 var drawTile = function(tile){
   for(var row = 0; row < 16; row++){

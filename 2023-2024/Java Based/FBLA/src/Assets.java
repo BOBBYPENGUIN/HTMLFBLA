@@ -165,7 +165,10 @@ public class Assets extends JComponent{
                 g2.fillRect(getCoordinates()[row][column][0], getCoordinates()[row][column][1], scale, scale);
             }
         }
-
     }
-    
+    public void translate(int dx, int dy){
+        this.x += dx;
+        this.y += dy;
+        repaint();
+    }
 }

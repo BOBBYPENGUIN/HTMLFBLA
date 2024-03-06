@@ -1,3 +1,4 @@
+package src;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
@@ -5,6 +6,7 @@ import java.awt.event.KeyListener;
 import java.util.ArrayList;
 
 import javax.swing.JFrame;
+import javax.swing.KeyStroke;
 
 public class GameFrame extends JFrame{
     private ArrayList<Assets> tiles = new ArrayList<>();
@@ -14,7 +16,8 @@ public class GameFrame extends JFrame{
         @Override
         public void keyTyped(KeyEvent e) {
             // TODO Auto-generated method stub
-            throw new UnsupportedOperationException("Unimplemented method 'keyTyped'");
+            var keyStroke =  KeyStroke.getKeyStrokeForEvent(e);
+            System.out.println(keyStroke);
         }
 
         @Override

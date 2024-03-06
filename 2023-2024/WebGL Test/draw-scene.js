@@ -1,4 +1,4 @@
-function drawScene(gl, programInfo, buffers, squareRotation) {
+function drawScene(gl, programInfo, buffers, squareRotation, squareTranslation) {
   gl.clearColor(0.0, 0.0, 0.0, 1.0); // Clear to black, fully opaque
   gl.clearDepth(1.0); // Clear everything
   gl.enable(gl.DEPTH_TEST); // Enable depth testing
@@ -37,12 +37,12 @@ function drawScene(gl, programInfo, buffers, squareRotation) {
     [-0.0, 0.0, -6.0]
   ); // amount to translate
 
-  mat4.rotate(
-    modelViewMatrix, // destination matrix
-    modelViewMatrix, // matrix to rotate
-    squareRotation, // amount to rotate in radians
-    [0, 0, 1]
-  ); // axis to rotate around
+  // mat4.rotate(
+  //   modelViewMatrix, // destination matrix
+  //   modelViewMatrix, // matrix to rotate
+  //   squareRotation, // amount to rotate in radians
+  //   [0, 0, 1]
+  // ); // axis to rotate around
 
   // Tell WebGL how to pull out the positions from the position
   // buffer into the vertexPosition attribute.

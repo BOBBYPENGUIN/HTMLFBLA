@@ -19,6 +19,9 @@ function initPositionBuffer(gl) {
 
   // Now create an array of positions for the square.
   const positions = [1.0, 1.0, -1.0, 1.0, 1.0, -1.0, -1.0, -1.0];
+  for(var i = 0; i < 8; i++){
+    positions[i] = positions[i]+1;
+  }
 
   // Now pass the list of positions into WebGL to build the
   // shape. We do this by creating a Float32Array from the

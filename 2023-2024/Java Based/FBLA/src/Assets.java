@@ -162,7 +162,8 @@ public class Assets extends JComponent{
         for(var row = 0; row < 16; row++){
             for(var column = 0; column < 16; column++){
                 g2.setColor(tileGridColors[row][column]);
-                g2.fillRect(getCoordinates()[row][column][0], getCoordinates()[row][column][1], scale, scale);
+                Rectangle rect = new Rectangle(getCoordinates()[row][column][0], getCoordinates()[row][column][1], scale, scale);
+                g2.fill(rect);
             }
         }
     }

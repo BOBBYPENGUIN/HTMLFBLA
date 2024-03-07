@@ -16,7 +16,7 @@ var startTime = theDate.getTime();
 var mouseDown = false;
 var clicked = false;
 var keyDown = false;
-var scale = 3;
+var scale = 2;
 var state = 0;
 var curKeyLetter = String.fromCharCode(curKey).toLowerCase();
 var pastKeyLetter = String.fromCharCode(curKey).toLowerCase();
@@ -128,10 +128,10 @@ var drawGameBackground = function() {
 } //creates grass
 var grass = []
 //grass.push(new Graphics(200, 200, 5, 5))
-for(var i = 0; i < 20; i++){
+for(var i = 0; i < 1; i++){
   var rowTiles = []
-  for(var j = 0; j < 20; j++){
-    rowTiles.push(new Graphics(i*scale*16, j * scale*16, scale, 5))
+  for(var j = 0; j < 1; j++){
+    rowTiles.push(new Graphics(i*50*16, j * 50*16, 50, 5))
   }
   grass.push(rowTiles)
 }
@@ -149,7 +149,7 @@ var yPosition = 30;
 var playerHead = new Graphics(xPosition, yPosition, scale, 2);
 var torso = new Graphics(xPosition, yPosition+scale*16, scale, 3);
 var legs = new Graphics(xPosition, yPosition+scale*16*2, scale, 4);
-
+var speed = 5;
 function draw() {
   ctx.fillStyle = "white";
   //ctx.fillRect(0, 0, width, height);
@@ -163,24 +163,24 @@ function draw() {
   drawTile(torso);
   drawTile(legs);
   if(keys["w"]){//W key
-    playerHead.move(0, -2);
-    torso.move(0, -2);
-    legs.move(0,-2);
+    playerHead.move(0, -speed);
+    torso.move(0, -speed);
+    legs.move(0,-speed);
   }
   if(keys["d"]){//D key
-    playerHead.move(2, 0);
-    torso.move(2, 0);
-    legs.move(2, 0);
+    playerHead.move(speed, 0);
+    torso.move(speed, 0);
+    legs.move(speed, 0);
   }
   if(keys["s"]){//S key
-    playerHead.move(0, 2);
-    torso.move(0, 2);
-    legs.move(0, 2);
+    playerHead.move(0, speed);
+    torso.move(0, speed);
+    legs.move(0, speed);
   }
   if(keys["a"]){//A Key
-    playerHead.move(-2, 0);
-    torso.move(-2, 0);
-    legs.move(-2, 0);
+    playerHead.move(-speed, 0);
+    torso.move(-speed, 0);
+    legs.move(-speed, 0);
   }
   if(keyDown){
     console.log(curKey);

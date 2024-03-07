@@ -1,9 +1,12 @@
 package src;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.ArrayList;
+import javax.swing.Timer;
 
 import javax.swing.JFrame;
 import javax.swing.KeyStroke;
@@ -13,6 +16,16 @@ public class GameFrame extends JFrame{
     Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
     boolean[] keyStatus = new boolean[128];
     boolean keyIsPressed = false;
+    Timer timer;
+    Assets testAsset;
+    class TimerListener implements ActionListener{
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            testAsset.translate(1, 0);
+        }
+        
+    }
     class MyKeyListener implements KeyListener {
 
         @Override
@@ -27,6 +40,7 @@ public class GameFrame extends JFrame{
             char keyChar = keyStroke.charAt(keyStroke.length()-1);
             int keyCode = (int) keyChar;
             keyStatus[keyCode] = true;
+            repaint();
         }
 
         @Override
@@ -36,11 +50,19 @@ public class GameFrame extends JFrame{
             char keyChar = keyStroke.charAt(keyStroke.length()-1);
             int keyCode = (int) keyChar;
             keyStatus[keyCode] = false;
+            repaint();
         }
         
     }
 
     public GameFrame(){
+        testAsset = new Assets(5, 5, 5, 1);
+        add(testAsset);
+        var TimerListener = new TimerListener();
+        final int DELAY = 2;
+        var timer = new Timer(DELAY, TimerListener);
+        timer.start();
+        //timer = new Timer(DELAY, null)
         var listener = new MyKeyListener();
         addKeyListener(listener);
         setFocusable(true);
@@ -57,5 +79,5 @@ public class GameFrame extends JFrame{
             System.out.println("TE");
         }
         requestFocus();
-    }
+    } 
 }

@@ -14,9 +14,16 @@ public class Assets extends JComponent{
     private Color[][] getColorsByType(){
         if(this.type == 1){
             return getRedSquare();
-        } else {
-            return getRedSquare();
+        } else if(this.type == 2){
+            return getPlayerHead();
+        } else if(this.type == 3){
+            return getPlayerTorso();
+        } else if(this.type == 4){
+            return getPlayerLegs();
+        } else if(this.type == 5){
+            return getGrass();
         }
+        return null;
     }
     private int[][][] getCoordinates(){
         var positions = new int[16][16][2];

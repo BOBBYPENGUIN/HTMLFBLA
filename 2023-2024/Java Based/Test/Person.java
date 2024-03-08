@@ -31,8 +31,8 @@ public class Person extends JPanel{
     public Person(){
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         personArr = new Assets[2];
-        personArr[0] = new Assets(50, 50, 5, 1);
-        personArr[1] = new Assets(50, 130, 5, 1);
+        personArr[0] = new Assets(50, 50, 5, 2);
+        personArr[1] = new Assets(50, 130, 5, 3);
         add(personArr[0]);
         add(personArr[1]);
         final int DELAY = 2;

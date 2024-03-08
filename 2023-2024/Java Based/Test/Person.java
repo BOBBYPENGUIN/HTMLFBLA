@@ -17,7 +17,7 @@ public class Person extends JPanel{
         @Override
         public void actionPerformed(ActionEvent e) {
             for(var i = 0; i < personArr.length; i++){
-                personArr[i].translate(-1, 0);
+                personArr[i].translate(-3, 0);
             }
             Rectangle dirty = new Rectangle(personArr[0].x, personArr[0].y, personArr[0].scale*16, personArr[0].scale*16*2);
             repaint(dirty);

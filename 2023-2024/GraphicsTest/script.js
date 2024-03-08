@@ -148,7 +148,7 @@ var xPosition = 30;
 var yPosition = 30;
 var playerHead = new Graphics(xPosition, yPosition, scale, 2);
 var torso = new Graphics(xPosition, yPosition+scale*16, scale, 3);
-var legs = new Graphics(xPosition, yPosition+scale*16*2, scale, 4);
+//var legs = new Graphics(xPosition, yPosition+scale*16*2, scale, 4);
 var speed = 5;
 function draw() {
   ctx.fillStyle = "white";

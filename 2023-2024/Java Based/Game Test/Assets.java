@@ -1,7 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
 import java.util.Arrays;
-
 public class Assets extends JComponent{
     public int x, y, scale, type;
     private Rectangle[][] pixelArr = new Rectangle[16][16];
@@ -16,17 +15,17 @@ public class Assets extends JComponent{
         if(this.type == 1){
             return getRedSquare();
         }else if(this.type == 2){
-            return getUpperPlayerBody();
+            return getUpperPlayerBodyStill();
         } else if(this.type == 3){
-            return getLowerPlayerBody();
+            return getLowerPlayerBodyStill();
         } else if(this.type == 4){
-            return getUpperPlayerBodyLF();
+            return getUpperPlayerBodyLeftFoot();
         } else if(this.type == 5){
-            return getLowerPlayerBodyLF();
+            return getLowerPlayerBodyLeftFoot();
         }else if(this.type == 6){
-            return getUpperPlayerBodyRF();
+            return getUpperPlayerBodyRightFoot();
         } else if(this.type == 7){
-            return getLowerPlayerBodyRF();
+            return getLowerPlayerBodyRightFoot();
         }else if(this.type == 8){
             return getGrass();
         }
@@ -85,7 +84,7 @@ public class Assets extends JComponent{
         };
         return colors;
     }
-    private Color[][] getUpperPlayerBody(){
+    private Color[][] getUpperPlayerBodyStill(){
         Color[][] colors = {
                 {CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, BLACK, BLACK, BLACK, BLACK, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR},
                 {CLEAR, CLEAR, CLEAR, CLEAR, BLACK, BLACK, DARKB, DARKB, DARKB, DARKB, BLACK, BLACK, CLEAR, CLEAR, CLEAR, CLEAR},
@@ -106,28 +105,28 @@ public class Assets extends JComponent{
         };
         return colors;
     }
-    private Color[][] getLowerPlayerBody(){
+    private Color[][] getLowerPlayerBodyStill(){
         Color[][] colors = {
-                {CLEAR, CLEAR, BLACK, GRAYY, BLACK, GRAYY, GRAYY, REDDD, REDDD, GRAYY, GRAYY, BLACK, GRAYY, BLACK, CLEAR, CLEAR},
-                {CLEAR, CLEAR, BLACK, GRAYY, BLACK, GRAYY, GRAYY, REDDD, REDDD, GRAYY, GRAYY, BLACK, GRAYY, BLACK, CLEAR, CLEAR},
-                {CLEAR, CLEAR, BLACK, GRAYY, BLACK, GRAYY, GRAYY, GRAYY, GRAYY, GRAYY, GRAYY, BLACK, GRAYY, BLACK, CLEAR, CLEAR},
-                {CLEAR, CLEAR, SKINN, SKINN, SKINN, GRAYY, GRAYY, GRAYY, GRAYY, GRAYY, GRAYY, SKINN, SKINN, SKINN, CLEAR, CLEAR},
-                {CLEAR, CLEAR, SKINN, SKINN, SKINN, BLACK, BLACK, BLACK, BLACK, BLACK, BLACK, SKINN, SKINN, SKINN, CLEAR, CLEAR},
-                {CLEAR, CLEAR, CLEAR, CLEAR, BLACK, GRAYY, GRAYY, GRAYY, GRAYY, GRAYY, GRAYY, BLACK, CLEAR, CLEAR, CLEAR, CLEAR},
-                {CLEAR, CLEAR, CLEAR, CLEAR, BLACK, GRAYY, GRAYY, GRAYY, GRAYY, GRAYY, GRAYY, BLACK, CLEAR, CLEAR, CLEAR, CLEAR},
-                {CLEAR, CLEAR, CLEAR, CLEAR, BLACK, GRAYY, BLACK, BLACK, BLACK, BLACK, GRAYY, BLACK, CLEAR, CLEAR, CLEAR, CLEAR},
-                {CLEAR, CLEAR, CLEAR, CLEAR, BLACK, GRAYY, BLACK, CLEAR, CLEAR, BLACK, GRAYY, BLACK, CLEAR, CLEAR, CLEAR, CLEAR},
-                {CLEAR, CLEAR, CLEAR, CLEAR, BLACK, GRAYY, BLACK, CLEAR, CLEAR, BLACK, GRAYY, BLACK, CLEAR, CLEAR, CLEAR, CLEAR},
-                {CLEAR, CLEAR, CLEAR, CLEAR, BLACK, GRAYY, BLACK, CLEAR, CLEAR, BLACK, GRAYY, BLACK, CLEAR, CLEAR, CLEAR, CLEAR},
-                {CLEAR, CLEAR, CLEAR, CLEAR, BLACK, GRAYY, BLACK, CLEAR, CLEAR, BLACK, GRAYY, BLACK, CLEAR, CLEAR, CLEAR, CLEAR},
-                {CLEAR, CLEAR, CLEAR, CLEAR, BLACK, GRAYY, BLACK, CLEAR, CLEAR, BLACK, GRAYY, BLACK, CLEAR, CLEAR, CLEAR, CLEAR},
-                {CLEAR, CLEAR, CLEAR, CLEAR, BLACK, GRAYY, BLACK, CLEAR, CLEAR, BLACK, GRAYY, BLACK, CLEAR, CLEAR, CLEAR, CLEAR},
-                {CLEAR, CLEAR, CLEAR, CLEAR, BLACK, GRAYY, BLACK, CLEAR, CLEAR, BLACK, GRAYY, BLACK, CLEAR, CLEAR, CLEAR, CLEAR},
-                {CLEAR, CLEAR, CLEAR, BLACK, BLACK, BLACK, BLACK, CLEAR, CLEAR, BLACK, BLACK, BLACK, BLACK, CLEAR, CLEAR, CLEAR},
+            {CLEAR, CLEAR, BLACK, GRAYY, BLACK, GRAYY, GRAYY, REDDD, REDDD, GRAYY, GRAYY, BLACK, GRAYY, BLACK, CLEAR, CLEAR},
+            {CLEAR, CLEAR, BLACK, GRAYY, BLACK, GRAYY, GRAYY, REDDD, REDDD, GRAYY, GRAYY, BLACK, GRAYY, BLACK, CLEAR, CLEAR},
+            {CLEAR, CLEAR, BLACK, GRAYY, BLACK, GRAYY, GRAYY, GRAYY, GRAYY, GRAYY, GRAYY, BLACK, GRAYY, BLACK, CLEAR, CLEAR},
+            {CLEAR, CLEAR, SKINN, SKINN, SKINN, GRAYY, GRAYY, GRAYY, GRAYY, GRAYY, GRAYY, SKINN, SKINN, SKINN, CLEAR, CLEAR},
+            {CLEAR, CLEAR, SKINN, SKINN, SKINN, BLACK, BLACK, BLACK, BLACK, BLACK, BLACK, SKINN, SKINN, SKINN, CLEAR, CLEAR},
+            {CLEAR, CLEAR, CLEAR, CLEAR, BLACK, GRAYY, GRAYY, GRAYY, GRAYY, GRAYY, GRAYY, BLACK, CLEAR, CLEAR, CLEAR, CLEAR},
+            {CLEAR, CLEAR, CLEAR, CLEAR, BLACK, GRAYY, GRAYY, GRAYY, GRAYY, GRAYY, GRAYY, BLACK, CLEAR, CLEAR, CLEAR, CLEAR},
+            {CLEAR, CLEAR, CLEAR, CLEAR, BLACK, GRAYY, BLACK, BLACK, BLACK, BLACK, GRAYY, BLACK, CLEAR, CLEAR, CLEAR, CLEAR},
+            {CLEAR, CLEAR, CLEAR, CLEAR, BLACK, GRAYY, BLACK, CLEAR, CLEAR, BLACK, GRAYY, BLACK, CLEAR, CLEAR, CLEAR, CLEAR},
+            {CLEAR, CLEAR, CLEAR, CLEAR, BLACK, GRAYY, BLACK, CLEAR, CLEAR, BLACK, GRAYY, BLACK, CLEAR, CLEAR, CLEAR, CLEAR},
+            {CLEAR, CLEAR, CLEAR, CLEAR, BLACK, GRAYY, BLACK, CLEAR, CLEAR, BLACK, GRAYY, BLACK, CLEAR, CLEAR, CLEAR, CLEAR},
+            {CLEAR, CLEAR, CLEAR, CLEAR, BLACK, GRAYY, BLACK, CLEAR, CLEAR, BLACK, GRAYY, BLACK, CLEAR, CLEAR, CLEAR, CLEAR},
+            {CLEAR, CLEAR, CLEAR, CLEAR, BLACK, GRAYY, BLACK, CLEAR, CLEAR, BLACK, GRAYY, BLACK, CLEAR, CLEAR, CLEAR, CLEAR},
+            {CLEAR, CLEAR, CLEAR, CLEAR, BLACK, GRAYY, BLACK, CLEAR, CLEAR, BLACK, GRAYY, BLACK, CLEAR, CLEAR, CLEAR, CLEAR},
+            {CLEAR, CLEAR, CLEAR, CLEAR, BLACK, GRAYY, BLACK, CLEAR, CLEAR, BLACK, GRAYY, BLACK, CLEAR, CLEAR, CLEAR, CLEAR},
+            {CLEAR, CLEAR, CLEAR, BLACK, BLACK, BLACK, BLACK, CLEAR, CLEAR, BLACK, BLACK, BLACK, BLACK, CLEAR, CLEAR, CLEAR},
         };
         return colors;
     }
-    private Color[][] getUpperPlayerBodyLF(){
+    private Color[][] getUpperPlayerBodyLeftFoot(){
         Color[][] colors = {
             {CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, BLACK, BLACK, BLACK, BLACK, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR},
             {CLEAR, CLEAR, CLEAR, CLEAR, BLACK, BLACK, DARKB, DARKB, DARKB, DARKB, BLACK, BLACK, CLEAR, CLEAR, CLEAR, CLEAR},
@@ -148,7 +147,7 @@ public class Assets extends JComponent{
         };
         return colors;
     }
-    private Color[][] getLowerPlayerBodyLF(){
+    private Color[][] getLowerPlayerBodyLeftFoot(){
         Color[][] colors = {
             {CLEAR, CLEAR, BLACK, GRAYY, GRAYY, BLACK, GRAYY, REDDD, REDDD, GRAYY, GRAYY, BLACK, GRAYY, BLACK, CLEAR, CLEAR},
             {CLEAR, CLEAR, BLACK, BLACK, GRAYY, BLACK, GRAYY, REDDD, REDDD, GRAYY, GRAYY, BLACK, GRAYY, BLACK, CLEAR, CLEAR},
@@ -169,7 +168,7 @@ public class Assets extends JComponent{
         };
         return colors;
     }
-    private Color[][] getUpperPlayerBodyRF(){
+    private Color[][] getUpperPlayerBodyRightFoot(){
         Color[][] colors = {
             {CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, BLACK, BLACK, BLACK, BLACK, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR},
             {CLEAR, CLEAR, CLEAR, CLEAR, BLACK, BLACK, DARKB, DARKB, DARKB, DARKB, BLACK, BLACK, CLEAR, CLEAR, CLEAR, CLEAR},
@@ -190,7 +189,7 @@ public class Assets extends JComponent{
         };
         return colors;
     }
-    private Color[][] getLowerPlayerBodyRF(){
+    private Color[][] getLowerPlayerBodyRightFoot(){
         Color[][] colors = {
             {CLEAR, CLEAR, BLACK, GRAYY, GRAYY, BLACK, GRAYY, REDDD, REDDD, GRAYY, GRAYY, BLACK, GRAYY, BLACK, CLEAR, CLEAR},
             {CLEAR, CLEAR, BLACK, BLACK, GRAYY, BLACK, GRAYY, REDDD, REDDD, GRAYY, GRAYY, BLACK, GRAYY, BLACK, CLEAR, CLEAR},
@@ -210,6 +209,9 @@ public class Assets extends JComponent{
             {CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, BLACK, BLACK, BLACK, BLACK, CLEAR, CLEAR, CLEAR},
         };
         return colors;
+    }
+    private Color[][] getUpperPlayerBodyFacingRight(){
+
     }
     private Color[][] getGrass(){
         Color[][] colors = {

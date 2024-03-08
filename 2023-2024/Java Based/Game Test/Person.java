@@ -20,7 +20,7 @@ public class Person extends JPanel{
         @Override
         public void actionPerformed(ActionEvent e) {
             for(var i = 0; i < personArr.length; i++){
-                personArr[i].translate(-3, 0);
+                personArr[i].translate(0, 0);
             }
             Rectangle dirty = new Rectangle(personArr[0].x, personArr[0].y, personArr[0].scale*16, personArr[0].scale*16*2);
             repaint();
@@ -64,8 +64,8 @@ public class Person extends JPanel{
     public Person(){
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         personArr = new Assets[2];
-        personArr[0] = new Assets(2000, 50, 5, 2);
-        personArr[1] = new Assets(2000, 130, 5, 3);
+        personArr[0] = new Assets(200, 50, 5, 6);
+        personArr[1] = new Assets(200, 130, 5, 7);
         //add(personArr[0]);
         //add(personArr[1]);
         final int DELAY = 1;

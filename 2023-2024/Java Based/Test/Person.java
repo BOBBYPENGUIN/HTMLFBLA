@@ -41,7 +41,21 @@ public class Person extends JPanel{
         background = new ArrayList<>();
         for(var i = 0; i < 20; i++){
             ArrayList<Assets> row = new ArrayList<>();
-            for(var j = 0; j < 20; j++){
+            for(var j = 0; j < 4; j++){
+                row.add(new Assets(i*5*16, j*5*16, 5, 4));
+            }
+            background.add(row);
+        }
+        for(var i = 0; i < 20; i++){
+            ArrayList<Assets> row = new ArrayList<>();
+            for(var j = 4; j < 6; j++){
+                row.add(new Assets(i*5*16, j*5*16, 5, 5));
+            }
+            background.add(row);
+        }
+        for(var i = 0; i < 20; i++){
+            ArrayList<Assets> row = new ArrayList<>();
+            for(var j = 6; j < 20; j++){
                 row.add(new Assets(i*5*16, j*5*16, 5, 4));
             }
             background.add(row);

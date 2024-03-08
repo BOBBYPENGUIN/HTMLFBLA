@@ -5,14 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="17084cfe-8e17-4d93-9eb4-3ed0699945e8" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/HTMLFBLA.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/HTMLFBLA.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2023-2024/Java Based/FBLA/src/Assets.java" beforeDir="false" afterPath="$PROJECT_DIR$/2023-2024/Java Based/FBLA/src/Assets.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2023-2024/Java Based/FBLA/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/2023-2024/Java Based/FBLA/src/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2023-2024/Java Based/FBLA/src/GameBackground.java" beforeDir="false" afterPath="$PROJECT_DIR$/2023-2024/Java Based/FBLA/src/GameBackground.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2023-2024/Java Based/FBLA/src/GameFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/2023-2024/Java Based/FBLA/src/GameFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2023-2024/Java Based/FBLA/src/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/2023-2024/Java Based/FBLA/src/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/2023-2024/Java Based/Test/Assets.java" beforeDir="false" afterPath="$PROJECT_DIR$/2023-2024/Java Based/Test/Assets.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/2023-2024/Java Based/Test/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/2023-2024/Java Based/Test/Person.java" afterDir="false" />
     </list>
@@ -32,13 +26,13 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "AlexBranch"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;AlexBranch&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Application.Viewer">
     <configuration name="Game" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Game" />

@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Assets extends JComponent{
-    private int x, y, scale, type;
+    public int x, y, scale, type;
     private Rectangle[][] pixelArr = new Rectangle[16][16];
     public Assets(int x, int y, int scale, int type){
         this.x = x;
@@ -159,12 +159,13 @@ public class Assets extends JComponent{
         }
     }
     public void translate(int dx, int dy){
+        x += dx;
+        y += dy;
         for(var row = 0; row < 16; row++){
             for(var column = 0; column < 16; column++){
                 pixelArr[row][column].translate(dx, dy);
             }
         }
         repaint();
-        super.repaint();
     }
 }

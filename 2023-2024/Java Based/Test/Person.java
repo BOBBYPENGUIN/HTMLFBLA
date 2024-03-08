@@ -1,6 +1,7 @@
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.Rectangle;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -18,7 +19,8 @@ public class Person extends JPanel{
             for(var i = 0; i < personArr.length; i++){
                 personArr[i].translate(-1, 0);
             }
-            repaint();
+            Rectangle dirty = new Rectangle(personArr[0].x, personArr[0].y, personArr[0].scale*16, personArr[0].scale*16*2);
+            repaint(dirty);
         }
         
     }
@@ -49,12 +51,12 @@ public class Person extends JPanel{
         personArr[1] = new Assets(2000, 130, 5, 3);
         for(var row : background){
             for(var tile : row){
-                add(tile);
+                //add(tile);
             }
         }
         //add(personArr[0]);
-        add(personArr[1]);
-        final int DELAY = 2;
+        //add(personArr[1]);
+        final int DELAY = 1;
         var listener = new TimerListener();
         var timer = new Timer(DELAY, listener);
         timer.start();

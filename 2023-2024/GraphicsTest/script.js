@@ -16,7 +16,7 @@ var startTime = theDate.getTime();
 var mouseDown = false;
 var clicked = false;
 var keyDown = false;
-var scale = 2;
+var scale = 15;
 var state = 0;
 var curKeyLetter = String.fromCharCode(curKey).toLowerCase();
 var pastKeyLetter = String.fromCharCode(curKey).toLowerCase();
@@ -148,20 +148,30 @@ var xPosition = 30;
 var yPosition = 30;
 var playerHead = new Graphics(xPosition, yPosition, scale, 2);
 var torso = new Graphics(xPosition, yPosition+scale*16, scale, 3);
+var playerHead2 = new Graphics(xPosition, yPosition, scale, 6);
+var torso2 = new Graphics(xPosition, yPosition+scale*16, scale, 7);
+var playerHead3 = new Graphics(xPosition, yPosition, scale, 8);
+var torso3 = new Graphics(xPosition, yPosition+scale*16, scale, 9);
 //var legs = new Graphics(xPosition, yPosition+scale*16*2, scale, 4);
 var speed = 5;
+var count = 0;
 function draw() {
   ctx.fillStyle = "white";
-  //ctx.fillRect(0, 0, width, height);
-  var nGrass = new Graphics(0, 0, 20, 5);
-  for(var i = 0; i < grass.length; i++){
-    for(var j = 0; j < grass[i].length; j++){
-      drawTile(grass[i][j])
-    }
+  ctx.fillRect(0, 0, width, height);
+  if(count % 120 <= 30 || (count % 120 > 60 && count % 120 <= 90)){
+    drawTile(playerHead);
+    drawTile(torso);
+  } else if(count % 120 > 30 && count % 120 <= 60){
+    drawTile(playerHead2);
+    drawTile(torso2);
+  } else{
+    drawTile(playerHead3);
+    drawTile(torso3);
   }
-  drawTile(playerHead);
-  drawTile(torso);
-  drawTile(legs);
+
+
+
+  
   if(keys["w"]){//W key
     playerHead.move(0, -speed);
     torso.move(0, -speed);
@@ -192,6 +202,7 @@ function draw() {
   }
   clicked = false;
   keyDown = false;
+  count = count + 2;
   window.requestAnimationFrame(draw);
 };
 draw();

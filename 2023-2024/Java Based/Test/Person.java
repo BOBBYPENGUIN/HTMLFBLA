@@ -4,18 +4,19 @@ import java.awt.Graphics2D;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.*;
+import java.util.ArrayList;
 
-import javax.swing.JPanel;
+import javax.swing.*;
 
 public class Person extends JPanel{
     private Assets[] personArr;
+    private ArrayList<ArrayList<Assets>> background;
     class TimerListener implements ActionListener{
 
         @Override
         public void actionPerformed(ActionEvent e) {
             for(var i = 0; i < personArr.length; i++){
-                personArr[i].translate(1, 0);
+                personArr[i].translate(-1, 0);
             }
             repaint();
         }
@@ -24,16 +25,34 @@ public class Person extends JPanel{
     protected void paintComponent(Graphics g){
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g;
+        for(var row : background){
+            for(var tile : row){
+                tile.draw(g2);
+            }
+        }
         for(var tile : personArr){
             tile.draw(g2);
         }
     }
     public Person(){
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        background = new ArrayList<>();
+        for(var i = 0; i < 20; i++){
+            ArrayList<Assets> row = new ArrayList<>();
+            for(var j = 0; j < 20; j++){
+                row.add(new Assets(i*5*16, j*5*16, 5, 4));
+            }
+            background.add(row);
+        }
         personArr = new Assets[2];
-        personArr[0] = new Assets(50, 50, 5, 2);
-        personArr[1] = new Assets(50, 130, 5, 3);
-        add(personArr[0]);
+        personArr[0] = new Assets(2000, 50, 5, 2);
+        personArr[1] = new Assets(2000, 130, 5, 3);
+        for(var row : background){
+            for(var tile : row){
+                add(tile);
+            }
+        }
+        //add(personArr[0]);
         add(personArr[1]);
         final int DELAY = 2;
         var listener = new TimerListener();

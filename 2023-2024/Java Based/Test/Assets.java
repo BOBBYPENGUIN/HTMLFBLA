@@ -18,6 +18,8 @@ public class Assets extends JComponent{
             return getUpperPlayerBody();
         } else if(this.type == 3){
             return getLowerPlayerBody();
+        } else if(this.type == 4){
+            return getGrass();
         }
         return null;
     }
@@ -115,7 +117,27 @@ public class Assets extends JComponent{
         };
         return colors;
     }
-        
+    private Color[][] getGrass(){
+        Color[][] colors = {
+            {GREE2, GREE2, GREE2, GREE2, GREE2, GREE2, GREE2, GREE2, GREE2, GREE2, GREE2, GREE2, GREE2, GREE2, GREE2, GREE2},
+            {GREE2, GREE2, GREE2, GREE2, GREE2, GREE2, GREE2, GREE2, GREE2, GREE2, GREE2, GREE2, GREE2, GREE2, GREE2, GREE2},
+            {GREE2, GREE2, GREE2, GREE3, GREE2, GREE2, GREE2, GREE2, GREE2, GREE4, GREE2, GREE2, GREE3, GREE2, GREE4, GREE2},
+            {GREE2, GREE2, GREE3, GREE2, GREE2, GREE2, GREE2, GREE3, GREE2, GREE2, GREE2, GREE2, GREE2, GREE2, GREE2, GREE2},
+            {GREE2, GREE2, GREE2, GREE2, GREE2, GREE4, GREE2, GREE2, GREE3, GREE2, GREE2, GREE2, GREE2, GREE2, GREE2, GREE2},
+            {GREE2, GREE2, GREE4, GREE2, GREE2, GREE2, GREE2, GREE2, GREE2, GREE2, GREE2, GREE2, GREE2, GREE2, GREE3, GREE2},
+            {GREE2, GREE2, GREE2, GREE2, GREE2, GREE2, GREE2, GREE2, GREE2, GREE2, GREE4, GREE2, GREE2, GREE3, GREE2, GREE2},
+            {GREE2, GREE2, GREE2, GREE2, GREE2, GREE2, GREE4, GREE2, GREE2, GREE2, GREE2, GREE2, GREE2, GREE2, GREE2, GREE2},
+            {GREE2, GREE2, GREE3, GREE2, GREE2, GREE2, GREE3, GREE2, GREE2, GREE2, GREE2, GREE2, GREE2, GREE2, GREE2, GREE2},
+            {GREE2, GREE2, GREE2, GREE2, GREE2, GREE2, GREE2, GREE2, GREE2, GREE3, GREE2, GREE2, GREE2, GREE2, GREE2, GREE2},
+            {GREE2, GREE2, GREE2, GREE2, GREE2, GREE2, GREE2, GREE2, GREE2, GREE2, GREE2, GREE2, GREE2, GREE4, GREE2, GREE2},
+            {GREE2, GREE2, GREE2, GREE4, GREE2, GREE2, GREE2, GREE2, GREE2, GREE2, GREE2, GREE4, GREE2, GREE2, GREE2, GREE2},
+            {GREE2, GREE2, GREE2, GREE2, GREE2, GREE3, GREE2, GREE2, GREE3, GREE2, GREE2, GREE2, GREE2, GREE3, GREE2, GREE2},
+            {GREE2, GREE3, GREE2, GREE2, GREE2, GREE2, GREE2, GREE2, GREE2, GREE2, GREE2, GREE2, GREE3, GREE2, GREE3, GREE2},
+            {GREE2, GREE2, GREE3, GREE2, GREE2, GREE2, GREE2, GREE2, GREE2, GREE4, GREE2, GREE2, GREE2, GREE2, GREE2, GREE2},
+            {GREE2, GREE2, GREE2, GREE2, GREE2, GREE2, GREE2, GREE2, GREE2, GREE2, GREE2, GREE2, GREE2, GREE2, GREE2, GREE2},
+        };
+        return colors;
+    }  
     public void paintComponent(Graphics g){
         Graphics2D g2 = (Graphics2D) g;
         Color[][] tileGridColors = getColorsByType();

@@ -114,7 +114,7 @@ public class Person extends JPanel{
         this.y = y;
         this.scale = scale;
         moving = true;
-        direction = 4;
+        direction = 3;
         personArr = new Assets[2];
         personArr[0] = new Assets(x, y, scale, type);
         personArr[1] = new Assets(x, y+16*scale, scale, type+1);

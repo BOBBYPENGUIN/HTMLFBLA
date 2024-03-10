@@ -4,7 +4,9 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 
 class ButtonTest extends JFrame{
-    Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize(); 
+    Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+    int type;
+    String text;
     class myListener implements ActionListener{
 
         @Override
@@ -16,7 +18,9 @@ class ButtonTest extends JFrame{
     private JPanel panel = new JPanel();
     private JButton button1 = new JButton("Test1");
     private JButton button2 = new JButton("Test2");
-    public ButtonTest(){
+    public ButtonTest(int type, String text){
+        this.type = type;
+        this.text = text;
         panel.setLayout(null);
         myListener listen = new myListener();
         button1.setBackground(new Color(0, 255, 255));

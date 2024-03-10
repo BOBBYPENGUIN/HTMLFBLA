@@ -13,21 +13,59 @@ import javax.swing.*;
 
 public class Person extends JPanel{
     private Assets[] personArr;
-    private boolean keyIsPressed;
-    private boolean[] keyStatus = new boolean[128];
+    private boolean moving;
+    private int direction;
+    private int counter = 0;
+    private int type = 8;
+    private final int BASELINE = 60;
+    Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+    private int x, y, scale;
     class TimerListener implements ActionListener{
 
         @Override
         public void actionPerformed(ActionEvent e) {
+            if(moving){
+                if(direction == 1){
+                    if(counter < BASELINE/4 || (counter >= BASELINE/2 && counter < BASELINE*3/4)){
+                        setType(2);
+                    } else if(counter >= BASELINE/4 && counter < BASELINE/2){
+                        setType(4);
+                    } else {
+                        setType(6);
+                        //System.out.println(personArr[1].type);
+                    }
+                }
+                if(direction == 2){
+                    if(counter < BASELINE/4 || (counter >= BASELINE/2 && counter < BASELINE*3/4)){
+                        setType(8);
+                    } else if(counter >= BASELINE/4 && counter < BASELINE/2){
+                        setType(10);
+                    } else {
+                        setType(12);
+                    }
+                }
+                if(direction == 3){
+                    if(counter < BASELINE/4 || (counter >= BASELINE/2 && counter < BASELINE*3/4)){
+                        setType(14);
+                    } else if(counter >= BASELINE/4 && counter < BASELINE/2){
+                        setType(16);
+                    } else {
+                        setType(18);
+                        //System.out.println(personArr[1].type);
+                    }
+                }
+            }
             for(var i = 0; i < personArr.length; i++){
                 personArr[i].translate(0, 0);
             }
             Rectangle dirty = new Rectangle(personArr[0].x, personArr[0].y, personArr[0].scale*16, personArr[0].scale*16*2);
+            counter = counter + 1;
+            counter = counter % BASELINE;
             repaint();
         }
         
     }
-    class MyKeyListener implements KeyListener {
+    /*class MyKeyListener implements KeyListener {
 
         @Override
         public void keyTyped(KeyEvent e) {
@@ -53,7 +91,7 @@ public class Person extends JPanel{
             keyStatus[keyCode] = false;
             repaint();
         }
-    }
+    }*/
     protected void paintComponent(Graphics g){
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g;
@@ -61,17 +99,25 @@ public class Person extends JPanel{
             tile.draw(g2);
         }
     }
-    public Person(){
-        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+    public Person(int x, int y, int scale){
+        this.x = x;
+        this.y = y;
+        this.scale = scale;
+        moving = true;
+        direction = 3;
         personArr = new Assets[2];
-        personArr[0] = new Assets(200, 50, 5, 6);
-        personArr[1] = new Assets(200, 130, 5, 7);
-        //add(personArr[0]);
-        //add(personArr[1]);
+        personArr[0] = new Assets(x, y, scale, type);
+        personArr[1] = new Assets(x, y+16*scale, scale, type+1);
+        add(personArr[0]);
+        add(personArr[1]);
         final int DELAY = 1;
         var listener = new TimerListener();
         var timer = new Timer(DELAY, listener);
         timer.start();
-
+    }
+    public void setType(int newType){
+        type = newType;
+        personArr[0].changeType(newType);
+        personArr[1].changeType(newType+1);
     }
 }

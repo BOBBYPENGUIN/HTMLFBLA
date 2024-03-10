@@ -212,9 +212,6 @@ public class Assets extends JComponent{
         return colors;
     }
     private Color[][] getUpperPlayerBodyFacingRight(){
-<<<<<<< Updated upstream
-        return new Color[0][0];
-=======
         Color[][] colors = {
                 {CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, BLACK, BLACK, BLACK, BLACK, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR},
                 {CLEAR, CLEAR, CLEAR, BLACK, BLACK, DARKB, DARKB, DARKB, DARKB, BLACK, BLACK, CLEAR, CLEAR, CLEAR, CLEAR, CLEAR},
@@ -234,7 +231,6 @@ public class Assets extends JComponent{
                 {CLEAR, CLEAR, CLEAR, BLACK, GRAYY, BLACK, GRAYY, GRAYY, REDDD, GRAYY, GRAYY, GRAYY, CLEAR, CLEAR, CLEAR, CLEAR},
         };
         return colors;
->>>>>>> Stashed changes
     }
     private Color[][] getLowerPlayerBodyFacingRight(){
         Color[][] colors = {

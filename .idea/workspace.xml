@@ -10,6 +10,7 @@
       <change beforePath="$PROJECT_DIR$/2023-2024/GraphicsTest/graphics.js" beforeDir="false" afterPath="$PROJECT_DIR$/2023-2024/GraphicsTest/graphics.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/2023-2024/GraphicsTest/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/2023-2024/GraphicsTest/script.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/2023-2024/Java Based/Game Test/Assets.java" beforeDir="false" afterPath="$PROJECT_DIR$/2023-2024/Java Based/Game Test/Assets.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2023-2024/Java Based/Game Test/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/2023-2024/Java Based/Game Test/Person.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,18 +28,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "AlexBranch",
-    "last_opened_file_path": "C:/Users/bwei2/Documents/GitHub/HTMLFBLA",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.lookFeel"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;AlexBranch&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/bwei2/Documents/GitHub/HTMLFBLA&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Application.Viewer">
     <configuration name="Game" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Game" />

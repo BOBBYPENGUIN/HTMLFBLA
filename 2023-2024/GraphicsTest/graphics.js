@@ -31,21 +31,21 @@ Graphics.prototype.getColors = function(){
     if(this.type == 1){
         return this.drawWhiteSquare();
     } else if(this.type == 2){
-        return this.drawUpperPlayerBodyFacingRight();
+        return this.drawUpperPlayerBody();
     } else if(this.type == 3){
-        return this.drawLowerPlayerBodyFacingRight();
+        return this.drawLowerPlayerBody();
     } else if(this.type == 4){
         return this.drawLegs();
     } else if(this.type == 5){
         return this.drawGrass();
     } else if(this.type == 6){
-        return this.drawUpperPlayerBodyFacingRightLF();
+        return this.drawUpperPlayerBodyLF();
     } else if(this.type == 7){
-        return this.drawLowerPlayerBodyFacingRightLF();
+        return this.drawLowerPlayerBodyLF();
     }else if(this.type == 8){
-        return this.drawUpperPlayerBodyFacingRightRF();
+        return this.drawUpperPlayerBodyRF();
     } else if(this.type == 9){
-        return this.drawLowerPlayerBodyFacingRightRF();
+        return this.drawLowerPlayerBodyRF();
     }
 }
 Graphics.prototype.getCoordinates = function(){
@@ -184,8 +184,8 @@ Graphics.prototype.drawLowerPlayerBodyFacingRightLF = function(){
         [CLEAR, CLEAR, BLACK, GRAYY, GRAYY, GRAYY, BLACK, CLEAR, BLACK, GRAYY, GRAYY, BLACK, CLEAR, CLEAR, CLEAR, CLEAR],
         [CLEAR, CLEAR, BLACK, GRAYY, GRAYY, BLACK, CLEAR, CLEAR, BLACK, GRAYY, GRAYY, GRAYY, BLACK, BLACK, CLEAR, CLEAR],
         [CLEAR, CLEAR, BLACK, GRAY2, LBLAC, BLACK, CLEAR, CLEAR, CLEAR, BLACK, GRAYY, GRAYY, GRAY2, BLACK, CLEAR, CLEAR],
-        [CLEAR, CLEAR, BLACK, GRAY2, LBLAC, LBLAC, GRAY2, CLEAR, CLEAR, BLACK, GRAY2, GRAY2, BLACK, BLACK, CLEAR, CLEAR],
-        [CLEAR, CLEAR, CLEAR, BLACK, BLACK, BLACK, BLACK, CLEAR, CLEAR, CLEAR, BLACK, BLACK, BLACK, CLEAR, CLEAR, CLEAR],
+        [CLEAR, CLEAR, BLACK, GRAY2, LBLAC, LBLAC, GRAY2, CLEAR, CLEAR, BLACK, GRAY2, GRAY2, BLACK, CLEAR, CLEAR, CLEAR],
+        [CLEAR, CLEAR, CLEAR, BLACK, BLACK, BLACK, BLACK, CLEAR, CLEAR, CLEAR, BLACK, BLACK, CLEAR, CLEAR, CLEAR, CLEAR],
     ]
     return colors;
 }

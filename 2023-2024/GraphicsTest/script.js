@@ -158,16 +158,16 @@ var count = 0;
 function draw() {
   ctx.fillStyle = "white";
   ctx.fillRect(0, 0, width, height);
-  if(count % 120 <= 30 || (count % 120 > 60 && count % 120 <= 90)){
-    drawTile(playerHead);
-    drawTile(torso);
-  } else if(count % 120 > 30 && count % 120 <= 60){
+  //if(count % 120 <= 30 || (count % 120 > 60 && count % 120 <= 90)){
     drawTile(playerHead2);
     drawTile(torso2);
-  } else{
-    drawTile(playerHead3);
-    drawTile(torso3);
-  }
+  //} else if(count % 120 > 30 && count % 120 <= 60){
+  //  drawTile(playerHead2);
+  //  drawTile(torso2);
+  //} else{
+  //  drawTile(playerHead3);
+  //  drawTile(torso3);
+  //}
 
   
 

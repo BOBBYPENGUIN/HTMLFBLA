@@ -17,7 +17,7 @@ public class Person extends JPanel{
     private int direction;
     private int counter = 0;
     private int type = 8;
-    private final int BASELINE = 60;
+    private final int BASELINE = 80;
     Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
     private int x, y, scale;
     class TimerListener implements ActionListener{
@@ -51,6 +51,16 @@ public class Person extends JPanel{
                         setType(16);
                     } else {
                         setType(18);
+                        //System.out.println(personArr[1].type);
+                    }
+                }
+                if(direction == 4){
+                    if(counter < BASELINE/4 || (counter >= BASELINE/2 && counter < BASELINE*3/4)){
+                        setType(20);
+                    } else if(counter >= BASELINE/4 && counter < BASELINE/2){
+                        setType(22);
+                    } else {
+                        setType(24);
                         //System.out.println(personArr[1].type);
                     }
                 }
@@ -104,7 +114,7 @@ public class Person extends JPanel{
         this.y = y;
         this.scale = scale;
         moving = true;
-        direction = 3;
+        direction = 4;
         personArr = new Assets[2];
         personArr[0] = new Assets(x, y, scale, type);
         personArr[1] = new Assets(x, y+16*scale, scale, type+1);

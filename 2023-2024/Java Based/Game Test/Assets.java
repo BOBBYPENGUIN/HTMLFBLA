@@ -211,7 +211,7 @@ public class Assets extends JComponent{
         return colors;
     }
     private Color[][] getUpperPlayerBodyFacingRight(){
-
+        return new Color[0][0];
     }
     private Color[][] getGrass(){
         Color[][] colors = {

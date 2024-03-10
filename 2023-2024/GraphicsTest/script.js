@@ -169,7 +169,7 @@ function draw() {
     drawTile(torso3);
   }
 
-
+  
 
   
   if(keys["w"]){//W key

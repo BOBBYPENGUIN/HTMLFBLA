@@ -81,11 +81,9 @@ class QuizFramework extends JFrame{
     }
     public void addQuestions(){
         addQuestion("When was FBLA founded?", "2020", "1999", "1956", "1937", 3);
-        System.out.println("Something");
     }
     public int getRandomQuestion(){
         Random rand = new Random();
-        System.out.println(questions.size());
         return rand.nextInt(questions.size());
     }
 

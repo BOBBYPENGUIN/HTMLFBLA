@@ -10,11 +10,15 @@ class QuizFramework extends JFrame{
     int state = 1;
     int type;
     String text;
+    private int questionNum;
     class myListener implements ActionListener{
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            drawQuestion();
+            String questionSelected  = e.getActionCommand();
+            if(questionSelected.equals(answers.get(questionNum).get(realAnswers.get(questionNum)))){
+                System.out.println("Correct");
+            }
         }
         
     }
@@ -22,7 +26,6 @@ class QuizFramework extends JFrame{
     ArrayList<ArrayList<String>> answers = new ArrayList<ArrayList<String>>();
     ArrayList<Integer> realAnswers = new ArrayList<>();
     private JPanel panel = new JPanel();
-    private int questionNum;
     private JButton button1;
     private JButton button2;
     private JButton button3;
@@ -36,7 +39,7 @@ class QuizFramework extends JFrame{
         button2 = new JButton(answers.get(questionNum).get(1));
         button3 = new JButton(answers.get(questionNum).get(2));
         button4 = new JButton(answers.get(questionNum).get(3));
-        question = new JLabel(questions.get(questionNum));
+        question = new JLabel(questions.get(questionNum), SwingConstants.CENTER);
         this.type = type;
         this.text = text;
         panel.setLayout(null);
@@ -45,9 +48,21 @@ class QuizFramework extends JFrame{
         setSize(screenSize);
     }
     public void drawQuestion(){
-        question.setBounds(500, 100, 500, 500);
+        question.setBounds((int) screenSize.getWidth()/5, (int) screenSize.getHeight ()/10, (int) screenSize.getWidth()*3/5, (int) screenSize.getHeight()/5);
         question.setFont(new Font("Serif", Font.PLAIN, 50));
         panel.add(question);
+        button1.setBounds((int) screenSize.getWidth()/10, (int) screenSize.getHeight ()/3, (int) screenSize.getWidth()*3/10, (int) screenSize.getHeight()/5);
+        button1.addActionListener(listen);
+        panel.add(button1);
+        button2.setBounds((int) screenSize.getWidth()*6/10, (int) screenSize.getHeight ()/3, (int) screenSize.getWidth()*3/10, (int) screenSize.getHeight()/5);
+        button2.addActionListener(listen);
+        panel.add(button2);
+        button3.setBounds((int) screenSize.getWidth()/10, (int) (screenSize.getHeight()*2/3), (int) screenSize.getWidth()*3/10, (int) screenSize.getHeight()/5);
+        button3.addActionListener(listen);
+        panel.add(button3);
+        button4.setBounds((int) screenSize.getWidth()*6/10, (int) (screenSize.getHeight ()*2/3), (int) screenSize.getWidth()*3/10, (int) screenSize.getHeight()/5);
+        button4.addActionListener(listen);
+        panel.add(button4);
     }
     public void addQuestion(String question, ArrayList<String> answers, int realAnswer){
         questions.add(question);
@@ -65,7 +80,7 @@ class QuizFramework extends JFrame{
         this.realAnswers.add(realAnswer);
     }
     public void addQuestions(){
-        addQuestion("When was FBLA founded?", "2020", "1999", "1956", "1937", 4);
+        addQuestion("When was FBLA founded?", "2020", "1999", "1956", "1937", 3);
         System.out.println("Something");
     }
     public int getRandomQuestion(){

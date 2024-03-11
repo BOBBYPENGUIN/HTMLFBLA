@@ -5,18 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="17084cfe-8e17-4d93-9eb4-3ed0699945e8" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/HTMLFBLA.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/HTMLFBLA.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2023-2024/GraphicsTest/graphics.js" beforeDir="false" afterPath="$PROJECT_DIR$/2023-2024/GraphicsTest/graphics.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2023-2024/GraphicsTest/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/2023-2024/GraphicsTest/script.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2023-2024/Java Based/Game Test/Assets.java" beforeDir="false" afterPath="$PROJECT_DIR$/2023-2024/Java Based/Game Test/Assets.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2023-2024/Java Based/reverser.py" beforeDir="false" afterPath="$PROJECT_DIR$/2023-2024/Java Based/reverser.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HTMLFBLA/Assets.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HTMLFBLA/Frame.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HTMLFBLA/Person$TimerListener.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HTMLFBLA/Person.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HTMLFBLA/Viewer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HTMLFBLA/translator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HTMLFBLA/translator.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/2023-2024/Java Based/Test3/QuizFramework.java" beforeDir="false" afterPath="$PROJECT_DIR$/2023-2024/Java Based/Test3/QuizFramework.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +37,7 @@
     "settings.editor.selected.configurable": "preferences.lookFeel"
   }
 }]]></component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.QuizViewer">
     <configuration name="ButtonViewer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ButtonViewer" />
       <module name="HTMLFBLA" />
@@ -98,9 +89,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.QuizViewer" />
         <item itemvalue="Application.Viewer" />
         <item itemvalue="Application.ButtonViewer" />
-        <item itemvalue="Application.QuizViewer" />
         <item itemvalue="Application.Game" />
       </list>
     </recent_temporary>

@@ -81,6 +81,9 @@ class QuizFramework extends JFrame{
     }
     public void addQuestions(){
         addQuestion("When was FBLA founded?", "2020", "1999", "1956", "1937", 3);
+        addQuestion("Which one of the following statements is part of the FBLA Code of Ethics?", "I will facilitate the transition from school to work.", "I will assist students in the establishment of occupational goals.", "I will promote business education to every person.", "I will willingly accept responsibilities and duties.",3);
+        addQuestion("Which one of the following statements is part of the FBLA Code of Ethics?", "I will abide by the rules and regulations of my school.", "I will practice efficient money management.", "I will create more interest in and understanding of American business enterprise.", "I will facilitate the transition from school to work.",0);
+        addQuestion("One of the FBLA goals is to:", "develop the qualities necessary in becoming a responsible business leader", " create more interest in and understanding of American business enterprise", "cooperate with my employer and fellow workers", "facilitate the transition from school to post secondary education",1);
     }
     public int getRandomQuestion(){
         Random rand = new Random();

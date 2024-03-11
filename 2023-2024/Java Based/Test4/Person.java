@@ -109,6 +109,13 @@ public class Person extends JComponent{
             tile.draw(g2);
         }
     }
+    protected void draw(Graphics g){
+        super.paintComponent(g);
+        Graphics2D g2 = (Graphics2D) g;
+        for(var tile : personArr){
+            tile.draw(g2);
+        }
+    }
     public Person(int x, int y, int scale){
         this.x = x;
         this.y = y;

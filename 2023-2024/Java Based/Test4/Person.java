@@ -1,4 +1,4 @@
-import java.awt.Dimension;
+ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 import javax.swing.*;
 
-public class Person extends JPanel{
+public class Person extends JComponent{
     private Assets[] personArr;
     private boolean moving;
     private int direction;
@@ -129,5 +129,11 @@ public class Person extends JPanel{
         type = newType;
         personArr[0].changeType(newType);
         personArr[1].changeType(newType+1);
+    }
+    public void setDirection(int direction){
+        this.direction = direction;
+    }
+    public void setMoving(boolean isMoving){
+        this.moving = isMoving;
     }
 }

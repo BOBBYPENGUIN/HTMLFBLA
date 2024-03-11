@@ -17,7 +17,7 @@ public class Person extends JComponent{
     private int direction;
     private int counter = 0;
     private int type = 8;
-    private final int BASELINE = 80;
+    private final int BASELINE = 40;
     Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
     private int x, y, scale;
     class TimerListener implements ActionListener{

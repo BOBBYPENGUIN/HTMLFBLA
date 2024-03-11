@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 import javax.swing.*;
 
-public class Person extends JPanel{
+public class Person extends JComponent{
     private Assets[] personArr;
     private boolean moving;
     private int direction;

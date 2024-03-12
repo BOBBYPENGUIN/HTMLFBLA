@@ -46,7 +46,6 @@ public class MainPanel extends JPanel{
 
         @Override
         public void keyTyped(KeyEvent e) {
-            System.out.println("Typed");
         }
 
         @Override

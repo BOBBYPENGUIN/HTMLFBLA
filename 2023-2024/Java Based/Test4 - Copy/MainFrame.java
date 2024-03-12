@@ -34,8 +34,7 @@ public class MainFrame extends JFrame{
         timer.start();
     }
     public void initWorld(){
-        System.out.println("StartingInit");
-        removeAll();
-        //add(thePanel);
+        remove(homepage);
+        add(thePanel);
     }
 }

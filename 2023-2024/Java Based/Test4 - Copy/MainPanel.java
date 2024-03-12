@@ -4,11 +4,12 @@ import java.awt.event.*;
 import javax.swing.*;
 
 public class MainPanel extends JPanel{
+    Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
     private int state = 1;
     private boolean keyIsPressed;
     private boolean[] keyStatus = new boolean[525];
     Background background = new Background();
-    Person person = new Person(200, 200, 5);
+    Person person;
     class myTimerListener implements ActionListener {
 
         @Override
@@ -65,25 +66,42 @@ public class MainPanel extends JPanel{
             char keyChar = keyStroke.charAt(keyStroke.length()-1);
             int keyCode = (int) keyChar;
             keyStatus[keyCode] = false;
+            for(var i : keyStatus){
+                if(i == true){
+                    keyIsPressed = true;
+                }
+            }
             repaint();
         }
     }
+    MyKeyListener theKeyListener = new MyKeyListener();
     public MainPanel(){
+        reset();
+    }
+    public void addKeyListener(){
+        removeKeyListener(theKeyListener);
         setFocusable(true);
-        requestFocus();
-        add(background);
-        add(person);
-        MyKeyListener theKeyListener = new MyKeyListener();
         addKeyListener(theKeyListener);
-        myTimerListener listen = new myTimerListener();
-        int DELAY = 1;
-        Timer myTimer = new Timer(DELAY, listen);
-        myTimer.start();
+        requestFocus();
+        reset();
+        repaint();    
     }
     protected void paintComponent(Graphics g){
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g;
         background.draw(g2);
         person.draw(g2);
+    }
+    public void reset(){
+        person = new Person((int)screenSize.getWidth()/2, (int)screenSize.getHeight()/2, 5);
+        setFocusable(true);
+        requestFocus();
+        add(background);
+        add(person);
+        addKeyListener(theKeyListener);
+        myTimerListener listen = new myTimerListener();
+        int DELAY = 1;
+        Timer myTimer = new Timer(DELAY, listen);
+        myTimer.start();
     }
 }

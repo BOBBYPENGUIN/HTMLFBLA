@@ -17,7 +17,7 @@ public class Person extends JPanel{
     private int direction;
     private int counter = 0;
     private int type = 8;
-    private final int BASELINE = 40;
+    private final int BASELINE = 20;
     Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
     private int x, y, scale;
     class TimerListener implements ActionListener{

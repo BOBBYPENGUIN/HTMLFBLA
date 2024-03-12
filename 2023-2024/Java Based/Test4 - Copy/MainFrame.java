@@ -1,4 +1,5 @@
 import java.awt.Dimension;
+import java.awt.Rectangle;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -21,7 +22,7 @@ public class MainFrame extends JFrame{
         
     }
     private Person panel = new Person(200, 50, 5);
-    private MainPanel thePanel = new MainPanel();
+    private MainPanel thePanel;
     public MainFrame(){
         homepage = new ButtonTest(0, "0");
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -34,7 +35,12 @@ public class MainFrame extends JFrame{
         timer.start();
     }
     public void initWorld(){
-        remove(homepage);
-        add(thePanel);
+        //removeAll();
+        thePanel = new MainPanel();
+        setContentPane(thePanel);
+        revalidate();
+        thePanel.addKeyListener();
+        repaint();
+        //thePanel.addKeyListener(thePanel.theKeyListener);
     }
 }

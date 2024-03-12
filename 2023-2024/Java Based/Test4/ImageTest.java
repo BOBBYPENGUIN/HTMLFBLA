@@ -1,5 +1,4 @@
-import java.awt.Dimension;
-import java.awt.Toolkit;
+import java.awt.*;
 import java.awt.event.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -31,22 +30,27 @@ public class ImageTest extends JPanel{
             throw new RuntimeException(e);
         }
     }
+    public void paintComponent(Graphics g) {
 
-    JLabel iowaLabel = new JLabel(new ImageIcon("Iowa.png"));
+        super.paintComponent(g);
+        g.drawImage(iowa, (int)screenSize.getWidth()/4, (int)screenSize.getHeight()/4,this);
+    }
     JLabel nationalLabel = new JLabel(new ImageIcon("national.png"));
 
 
     public ImageTest(int state){
         textField.setBounds(50,50,150,20);
-        add(iowaLabel);
+        setSize(screenSize);
         addMouseListener(listen);
+        add(textField);
+        setLayout(null);
     }
     class myListener implements MouseListener{
 
         @Override
         public void mouseClicked(MouseEvent e) {
-            int color = iowa.getRGB(e.getX(), e.getY());
-            System.out.println(e.getX());
+            int color = iowa.getRGB((int)(e.getX()-(screenSize.getWidth() - iowa.getWidth())/2), e.getY());
+            System.out.println(iowa.getWidth());
             // Components will be in the range of 0..255:
             int blue = color & 0xff;
             int green = (color & 0xff00) >> 8;
@@ -55,22 +59,17 @@ public class ImageTest extends JPanel{
             System.out.println("red: "+ red + ",green: " + green + ",blue: " + blue);
             if(state == 0){
                 if(red ==  37 && green == 55 && blue == 123){
-                    System.out.println("0000000");
+                    textField.setVisible(true);
                     //iowaMoney[0] = Integer.parseInt(textField.getText());
                 }else if(red == 46 && green == 88 && blue == 167){
-                    System.out.println("0000000");
                     iowaMoney[1] = Integer.parseInt(textField.getText());
                 }else if(red == 245 && green == 171 && blue == 27){
-                    System.out.println("0000000");
                     iowaMoney[2] = Integer.parseInt(textField.getText());
                 }else if(red == 154 && green == 149 && blue == 149){
-                    System.out.println("0000000");
                     iowaMoney[3] = Integer.parseInt(textField.getText());
                 }else if(red == 60 && green == 106 && blue == 179){
-                    System.out.println("0000000");
                     iowaMoney[4] = Integer.parseInt(textField.getText());
                 }else if(red == 85 && green == 81 && blue == 80){
-                    System.out.println("0000000");
                     iowaMoney[5] = Integer.parseInt(textField.getText());
                 }
             } else if(state == 1){

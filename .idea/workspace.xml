@@ -5,8 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="17084cfe-8e17-4d93-9eb4-3ed0699945e8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/2023-2024/Java Based/Test4/ImageTestFrame.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/2023-2024/Java Based/Test4/ImageTestViewer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/2023-2024/Java Based/Test4/ImageTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/2023-2024/Java Based/Test4/ImageTest.java" afterDir="false" />
     </list>

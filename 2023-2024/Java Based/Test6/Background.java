@@ -4,7 +4,7 @@ import java.awt.*;
 import java.util.*;
 public class Background extends JComponent{
     private ArrayList<ArrayList<Assets>> background = new ArrayList<>();
-    private ArrayList<Assets> extras = new ArrayList<>();
+    ArrayList<Assets> extras = new ArrayList<>();
     private int width, height;
     Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
     public void createBackground(){

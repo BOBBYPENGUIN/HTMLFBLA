@@ -32,7 +32,9 @@ public class MainFrame extends JFrame{
             } else if(state == 1){
                 if(System.currentTimeMillis()/1000 > questionDelay){
                     initQuestion();
-                }
+                } if(Math.abs(Math.abs(thePanel.dx)-Math.abs(600)) < 320 && Math.abs(Math.abs(thePanel.dy)-Math.abs(880)) < 160){
+                    System.out.println("Transition");
+                } 
             } else if(state == 2){
                 if(question.state != 1){
                     if(question.state == 2){

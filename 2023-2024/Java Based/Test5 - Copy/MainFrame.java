@@ -15,7 +15,7 @@ public class MainFrame extends JFrame{
     private QuizFramework question;
     private boolean initStatus[] = {false};
     private long questionDelay;
-    private InfoPanel cashLabel = new InfoPanel("");
+    private InfoPanel cashLabel;
     Random rand = new Random();
     int state = 0;
     int questionStatus = 0;
@@ -45,23 +45,23 @@ public class MainFrame extends JFrame{
                         // TODO Auto-generated catch block
                         b.printStackTrace();
                     }
+                    state = 3;
                     drawCashLabel();
-                    revalidate();
-                    repaint();
-                    try {
-                        Thread.sleep(5000);
-                    } catch (InterruptedException b) {
-                        // TODO Auto-generated catch block
-                        b.printStackTrace();
-                    }
-                    initWorld();
+
                 }
+            } else if(state == 3){
+                try {
+                    Thread.sleep(5000);
+                } catch (InterruptedException b) {
+                    // TODO Auto-generated catch block
+                    b.printStackTrace();
+                }
+                initWorld();
             }
             repaint();
         }
         
     }
-    private Person panel = new Person(200, 50, 5);
     public MainFrame(){
         homepage = new ButtonTest(0, "0");
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();

@@ -11,7 +11,7 @@ class InfoPanel extends JPanel{
     private JLabel result;
     public InfoPanel(String text){
         removeAll();
-        this.text =text;
+        this.text = text;
         setLayout(null);
         setSize(screenSize);
         result = new JLabel(text, SwingConstants.CENTER);

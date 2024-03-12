@@ -9,7 +9,7 @@ public class MainPanel extends JPanel{
     boolean keyIsPressed;
     boolean[] keyStatus = new boolean[525];
     public int dx, dy;
-    private int backgroundWidth = 30;
+    private int backgroundWidth = 60;
     private int backgroundHeight = 20;
     Background background = new Background(backgroundWidth, backgroundHeight);
     Person person = new Person((int)screenSize.getWidth()/2, (int)screenSize.getHeight()/2, 5);

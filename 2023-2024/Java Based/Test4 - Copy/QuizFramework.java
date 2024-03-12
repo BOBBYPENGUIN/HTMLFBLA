@@ -5,7 +5,7 @@ import java.util.*;
 
 import javax.swing.*;
 
-class QuizFramework extends JFrame{
+class QuizFramework extends JPanel{
     Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
     int state = 1;
     int type;
@@ -25,7 +25,6 @@ class QuizFramework extends JFrame{
     ArrayList<String> questions = new ArrayList<>();
     ArrayList<ArrayList<String>> answers = new ArrayList<ArrayList<String>>();
     ArrayList<Integer> realAnswers = new ArrayList<>();
-    private JPanel panel = new JPanel();
     private JButton button1;
     private JButton button2;
     private JButton button3;
@@ -42,27 +41,26 @@ class QuizFramework extends JFrame{
         question = new JLabel(questions.get(questionNum), SwingConstants.CENTER);
         this.type = type;
         this.text = text;
-        panel.setLayout(null);
+        setLayout(null);
         drawQuestion();
-        add(panel);
         setSize(screenSize);
     }
     public void drawQuestion(){
         question.setBounds((int) screenSize.getWidth()/5, (int) screenSize.getHeight ()/10, (int) screenSize.getWidth()*3/5, (int) screenSize.getHeight()/5);
         question.setFont(new Font("Serif", Font.PLAIN, 50));
-        panel.add(question);
+        add(question);
         button1.setBounds((int) screenSize.getWidth()/10, (int) screenSize.getHeight ()/3, (int) screenSize.getWidth()*3/10, (int) screenSize.getHeight()/5);
         button1.addActionListener(listen);
-        panel.add(button1);
+        add(button1);
         button2.setBounds((int) screenSize.getWidth()*6/10, (int) screenSize.getHeight ()/3, (int) screenSize.getWidth()*3/10, (int) screenSize.getHeight()/5);
         button2.addActionListener(listen);
-        panel.add(button2);
+        add(button2);
         button3.setBounds((int) screenSize.getWidth()/10, (int) (screenSize.getHeight()*2/3), (int) screenSize.getWidth()*3/10, (int) screenSize.getHeight()/5);
         button3.addActionListener(listen);
-        panel.add(button3);
+        add(button3);
         button4.setBounds((int) screenSize.getWidth()*6/10, (int) (screenSize.getHeight ()*2/3), (int) screenSize.getWidth()*3/10, (int) screenSize.getHeight()/5);
         button4.addActionListener(listen);
-        panel.add(button4);
+        add(button4);
     }
     public void addQuestion(String question, ArrayList<String> answers, int realAnswer){
         questions.add(question);

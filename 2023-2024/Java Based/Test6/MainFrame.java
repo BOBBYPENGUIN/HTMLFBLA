@@ -11,6 +11,7 @@ import javax.sound.midi.MidiDevice.Info;
 import javax.swing.*;
 
 public class MainFrame extends JFrame{
+    Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
     private ButtonTest homepage;
     private QuizFramework question;
     private boolean initStatus[] = {false};
@@ -31,9 +32,15 @@ public class MainFrame extends JFrame{
                 }
             } else if(state == 1){
                 if(System.currentTimeMillis()/1000 > questionDelay){
+                    System.out.println(thePanel.dx);
+                    System.out.println(thePanel.background.extras.get(0).x);
+                    System.out.println(thePanel.background.extras.get(3).y);
+                    System.out.println(thePanel.dy);
                     initQuestion();
-                } if(Math.abs(Math.abs(thePanel.dx)-Math.abs(600)) < 320 && Math.abs(Math.abs(thePanel.dy)-Math.abs(880)) < 160){
-                    System.out.println("Transition");
+                } if(thePanel.background.extras.get(0).x-screenSize.getWidth()/2 +16*5< Math.abs(thePanel.dx) && thePanel.background.extras.get(0).x-screenSize.getWidth()/2 +16*5+5*16*10> Math.abs(thePanel.dx)){
+                    if(thePanel.background.extras.get(0).y-screenSize.getWidth()/2 +3*16*5< Math.abs(thePanel.dy) && thePanel.background.extras.get(0).y-screenSize.getWidth()/2 +2*16*5+5*16*10> Math.abs(thePanel.dy)){
+                        System.out.println("Transition");
+                    }
                 } 
             } else if(state == 2){
                 if(question.state != 1){

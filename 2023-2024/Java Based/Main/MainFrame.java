@@ -25,7 +25,7 @@ public class MainFrame extends JFrame{
     Random rand = new Random();
     int state = 0;
     int questionStatus = 0;
-    int cash = 0;
+    int cash = 1000000;
     int difficulty;
     private MainPanel thePanel;
     private NationalPanel nationalPanel;
@@ -49,7 +49,7 @@ public class MainFrame extends JFrame{
             } else if(state == 2){
                 if(question.state != 1){
                     if(question.state == 2){
-                        cash = (int) (cash + 1000 + Math.abs(thePanel.background.extras.get(0).x-screenSize.getWidth()/2 +16*5- Math.abs(thePanel.dx)) + Math.abs(thePanel.background.extras.get(0).y-screenSize.getHeight()/2 +16*5- Math.abs(thePanel.dx)));
+                        cash = (int) (cash + 1000 + Math.abs(thePanel.background.extras.get(0).x-screenSize.getWidth()/2 +16*5- Math.abs(nationalPanel.dx)));
                     }
                     repaint();
                     try {
@@ -93,7 +93,7 @@ public class MainFrame extends JFrame{
             } else if(state == 7){
                 if(question2.state != 1){
                     if(question2.state == 2){
-                        cash = (int) (cash + 1000 + Math.abs(nationalPanel.background.extras.get(0).x-screenSize.getWidth()/2 +16*5- Math.abs(nationalPanel.dx)) + Math.abs(nationalPanel.background.extras.get(0).y-screenSize.getHeight()/2 +16*5- Math.abs(nationalPanel.dx)));
+                        cash = cash + 1000 + Math.abs(Math.abs(nationalPanel.dx)-Math.abs(600)) + Math.abs(Math.abs(nationalPanel.dy)-Math.abs(880));
                     }
                     repaint();
                     try {

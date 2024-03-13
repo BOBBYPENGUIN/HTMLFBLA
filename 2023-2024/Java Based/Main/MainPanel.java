@@ -3,15 +3,15 @@ import java.awt.event.*;
 
 import javax.swing.*;
 
-public class NationalPanel extends JPanel{
+public class MainPanel extends JPanel{
     Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
     private int state = 1;
     boolean keyIsPressed;
     boolean[] keyStatus = new boolean[525];
     public int dx, dy;
     int backgroundWidth = 60;
-    int backgroundHeight = 30;
-    NationalBackground background = new NationalBackground(backgroundWidth, backgroundHeight);
+    int backgroundHeight = 20;
+    Background background = new Background(backgroundWidth, backgroundHeight);
     Person person = new Person((int)screenSize.getWidth()/2, (int)screenSize.getHeight()/2, 5);
     class myTimerListener implements ActionListener {
 
@@ -29,7 +29,7 @@ public class NationalPanel extends JPanel{
                 if(keyStatus[83]){
                     person.setMoving(true);
                     person.setDirection(1);
-                    if(dy >= -(backgroundHeight-11)*16*10){
+                    if(dy >= -(backgroundHeight-11)*16*5){
                         background.translate(0, -5);
                         dy += -5;
                     }
@@ -37,7 +37,7 @@ public class NationalPanel extends JPanel{
                 if(keyStatus[68]){
                     person.setMoving(true);
                     person.setDirection(2);
-                    if(dx >= -(backgroundWidth-18)*16*10){
+                    if(dx >= -(backgroundWidth-18)*16*5){
                         background.translate(-5, 0);
                         dx += -5;
                     }
@@ -90,7 +90,7 @@ public class NationalPanel extends JPanel{
         }
     }
     MyKeyListener theKeyListener = new MyKeyListener();
-    public NationalPanel(){
+    public MainPanel(){
         reset();
     }
     public void addKeyListener(){

@@ -15,11 +15,11 @@ public class MainFrame extends JFrame{
     private QuizFramework question;
     private boolean initStatus[] = {false};
     private long questionDelay;
-    private InfoPanel cashLabel;
+    public InfoPanel cashLabel;
     Random rand = new Random();
     int state = 0;
     int questionStatus = 0;
-    int cash = 0;
+    int cash = 1000;
     private MainPanel thePanel;
     class myListener implements ActionListener{
 
@@ -100,5 +100,8 @@ public class MainFrame extends JFrame{
         setContentPane(cashLabel);
         revalidate();
         repaint(); 
+    }
+    public int getCash(){
+        return cash;
     }
 }

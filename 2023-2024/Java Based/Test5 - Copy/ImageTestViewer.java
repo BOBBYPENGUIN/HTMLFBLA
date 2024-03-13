@@ -5,12 +5,11 @@ import java.awt.Toolkit;
 import javax.swing.JFrame;
 import javax.swing.WindowConstants;
 
-public class ButtonViewer {
+public class ImageTestViewer {
     public static void main(String[] args) {
-        var frame = new ButtonFrame();
+        var frame = new ImageTestFrame();
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setVisible(true);
-        //System.out.println("Something");
     }
-    
+
 }

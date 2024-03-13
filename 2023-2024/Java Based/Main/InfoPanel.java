@@ -4,7 +4,9 @@ import java.awt.event.ActionListener;
 import java.util.*;
 
 import javax.swing.*;
-
+/**
+ * Creates a framework for displaying simple information
+ */
 class InfoPanel extends JPanel{
     Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
     String text;

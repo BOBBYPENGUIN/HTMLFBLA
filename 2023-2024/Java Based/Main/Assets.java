@@ -1,9 +1,19 @@
 import javax.swing.*;
 import java.awt.*;
 import java.util.Arrays;
+/**
+ * Creates a framework for storing and drawing assets. It allows for drawing each tile, changing and storing a tile's type, and moving the tile 
+ */
 public class Assets extends JComponent{
     public int x, y, scale, type;
     private Rectangle[][] pixelArr = new Rectangle[16][16];
+    /**
+     * Constructs the Asset
+     * @param x
+     * @param y
+     * @param scale
+     * @param type
+     */
     public Assets(int x, int y, int scale, int type){
         this.x = x;
         this.y = y;
@@ -11,6 +21,10 @@ public class Assets extends JComponent{
         this.type = type;
         setTile();
     }
+    /**
+     * Returns the color grid for a given integer type
+     * @return
+     */
     public Color[][] getColorsByType(){
         if(this.type == 0){
             return getRedSquare();
@@ -83,6 +97,9 @@ public class Assets extends JComponent{
         }
         return null;
     }
+    /**
+     * Turns an x, y, and scale into a tangible rectangle
+     */
     private void setTile(){
         for(var row = 0; row < 16; row++){
             for(var column = 0; column < 16; column++){
@@ -90,7 +107,6 @@ public class Assets extends JComponent{
             }
         }
     }
-    //Defines the colors
     //Defines the colors
     private Color REDDD = new Color(255,0,0);
     private Color GREEN = new Color(0,255,0);

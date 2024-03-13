@@ -2,6 +2,9 @@ import javax.swing.*;
 
 import java.awt.*;
 import java.util.*;
+/**
+ * Creates the background for Iowa
+ */
 public class Background extends JComponent{
     private ArrayList<ArrayList<Assets>> background = new ArrayList<>();
     ArrayList<Assets> extras = new ArrayList<>();

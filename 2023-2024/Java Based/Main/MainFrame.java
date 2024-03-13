@@ -9,27 +9,43 @@ import java.util.Random;
 
 import javax.sound.midi.MidiDevice.Info;
 import javax.swing.*;
-
+/**
+ * Contains the main running frame of the game. Runs the code to determine when and how to switch between different panels, or states.
+ */
 public class MainFrame extends JFrame{
     Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-    private ButtonTest homepage;
+    private Homepage homepage;
     private QuizFramework question;
     private QuizFramework question2;
-    private ImageTest iowaState;
-    private NationalTest nationState;
-    private BossFight iowaShowdown;
-    private BossFightNation nationShowdown;
+    private IowaCompetition iowaState;
+    private NationalCompetition nationState;
+    private IowaComparison iowaShowdown;
+    private NationalComparison nationShowdown;
     private boolean initStatus[] = {false};
     private long questionDelay;
-    long startTime;
     private InfoPanel cashLabel;
+    long startTime;
     Random rand = new Random();
     int state = 0;
     int questionStatus = 0;
     int cash = 100000;
     int difficulty;
-    private MainPanel thePanel;
+    private IowaPanel thePanel;
     private NationalPanel nationalPanel;
+    /**
+     * This listener creates the logic to switch between states. The states are defined as follows:
+     * State 0: Homepage
+     * State 1: Iowa's world map
+     * State 2: Iowa's question panel
+     * State 3: Display of how much money you have
+     * State 4: Interface where you divide money between districts
+     * State 5: Compares your money division with your opponent's money division
+     * State 6: The United States' world map
+     * State 7: The United States' question panel
+     * State 8: Display of how much money you have
+     * State 9: Interface where you divide money between regions
+     * State 10: Compares your money division with your opponent's money division
+     */
     class myListener implements ActionListener{
 
         @Override
@@ -79,7 +95,7 @@ public class MainFrame extends JFrame{
             } else if(state == 5){
                 if(iowaShowdown.done){
                     try {
-                        Thread.sleep(2500);
+                        Thread.sleep(10000);
                     } catch (InterruptedException b) {
                         b.printStackTrace();
                     }
@@ -126,11 +142,14 @@ public class MainFrame extends JFrame{
         }
         
     }
+    /**
+     * Initializes, which includes setting up the listener, the homepage, instance variables, and the screen size.
+     */
     public MainFrame(){
-        homepage = new ButtonTest(0, "0");
+        homepage = new Homepage(0, "0");
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         setSize(screenSize);
-        thePanel = new MainPanel();
+        thePanel = new IowaPanel();
         //setLayout(null);
         //add(thePanel);
         add(homepage);
@@ -138,6 +157,9 @@ public class MainFrame extends JFrame{
         Timer timer = new Timer(1, listener);
         timer.start();
     }
+    /**
+     * Initializes Iowa's world 
+     */
     public void initWorld(){
         state = 1;
         //removeAll();
@@ -148,6 +170,9 @@ public class MainFrame extends JFrame{
         questionDelay = rand.nextInt(5)+ 5 + (long) System.currentTimeMillis()/1000;
         //thePanel.addKeyListener(thePanel.theKeyListener);
     }
+    /**
+     * Initializes Iowa's question framework
+     */
     public void initQuestion(){
         state = 2;
         thePanel.keyIsPressed = false;
@@ -159,6 +184,9 @@ public class MainFrame extends JFrame{
         revalidate();
         repaint(); 
     }
+    /**
+     * Initializes the Nation's question framework
+     */
     public void initNationalQuestion(){
         state = 7;
         nationalPanel.keyIsPressed = false;
@@ -170,33 +198,48 @@ public class MainFrame extends JFrame{
         revalidate();
         repaint(); 
     }
+    /**
+     * Initializes a framework for drawing how much money you have
+     */
     public void drawCashLabel(){
         cashLabel = new InfoPanel("You currently have: $" + Integer.toString(cash));
         setContentPane(cashLabel);
         revalidate();
         repaint(); 
     }
+    /**
+     * Initializes Iowa's competition framework
+     */
     public void initIowaMoney(){
         state = 4;
-        iowaState = new ImageTest(cash);
+        iowaState = new IowaCompetition(cash);
         setContentPane(iowaState);
         revalidate();
         repaint(); 
     }
+    /**
+     * Initializes the Nation's competition framework
+     */
     public void initNationMoney(){
         state = 9;
-        nationState = new NationalTest(cash);
+        nationState = new NationalCompetition(cash);
         setContentPane(nationState);
         revalidate();
         repaint(); 
     }
+    /**
+     * Initializes the frame for comparing your score to your opponent's score
+     */
     public void initIowaShowdown(){
         state = 5;
-        iowaShowdown = new BossFight(difficulty, iowaState.getMoney());
+        iowaShowdown = new IowaComparison(difficulty, iowaState.getMoney());
         setContentPane(iowaShowdown);
         revalidate();
         repaint(); 
     }
+    /**
+     * Initializes the National world
+     */
     public void initNationalWorld(){
         state = 6;
         //removeAll();
@@ -207,9 +250,12 @@ public class MainFrame extends JFrame{
         questionDelay = rand.nextInt(5)+ 5 + (long) System.currentTimeMillis()/1000;
         //thePanel.addKeyListener(thePanel.theKeyListener);
     }
+    /**
+     * Initializes the frame for comparing your score to your opponent's score
+     */
     public void initNationShowdown(){
         state = 10;
-        nationShowdown = new BossFightNation(difficulty, nationState.getMoney(),startTime, iowaShowdown.getDistricts());
+        nationShowdown = new NationalComparison(difficulty, nationState.getMoney(),startTime, iowaShowdown.getDistricts());
         setContentPane(nationShowdown);
         revalidate();
         repaint(); 

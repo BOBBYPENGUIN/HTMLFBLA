@@ -98,6 +98,8 @@ class QuizFramework extends JPanel{
         addQuestion("Which state was the first FBLA state chapter?", "North Carolina",  "Virginia", "Arkansas", "Iowa",3);
         addQuestion("The FBLA-Middle Level Division was formed in what year?", "1989", "1992", "1994", "1998",2);
         addQuestion("The name Future Business Leaders of America was selected in what year?", "1937", "1942", "1940", "1946",2)  ;
+        addQuestion("One of the stanzas of the FBLA Creed is:", "I promise to actively work toward improving social, political, community, and family life.", "I shall develop the qualities necessary to actively work toward improving social, political, community, and family life.","I will actively work toward improving social, political, community, and family life.", "I believe every person should actively work toward improving social, political, community, and family life",3);
+        addQuestion("The FBLA goal is to assist students in the establishment of:", "leadership qualities","school loyalty", "occupational goals", "efficient money management",2);
     }
     public int getRandomQuestion(){
         Random rand = new Random();

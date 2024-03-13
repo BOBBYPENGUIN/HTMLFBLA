@@ -43,9 +43,11 @@ public class MainFrame extends JFrame{
             } else if(state == 1){
                 if(System.currentTimeMillis()/1000 > questionDelay){
                     initQuestion();
-                } if(thePanel.background.extras.get(0).x-screenSize.getWidth()/2 +16*5< Math.abs(thePanel.dx) && thePanel.background.extras.get(0).x-screenSize.getWidth()/2 +16*5+5*16*10> Math.abs(thePanel.dx)){
-                    if(thePanel.background.extras.get(0).y-screenSize.getWidth()/2 +3*16*5< Math.abs(thePanel.dy) && thePanel.background.extras.get(0).y-screenSize.getWidth()/2 +2*16*5+5*16*10> Math.abs(thePanel.dy)){
-                        initIowaMoney();
+                } if(cash > 5000){
+                    if(thePanel.background.extras.get(0).x-screenSize.getWidth()/2 +16*5< Math.abs(thePanel.dx) && thePanel.background.extras.get(0).x-screenSize.getWidth()/2 +16*5+5*16*10> Math.abs(thePanel.dx)){
+                        if(thePanel.background.extras.get(0).y-screenSize.getWidth()/2 +3*16*5< Math.abs(thePanel.dy) && thePanel.background.extras.get(0).y-screenSize.getWidth()/2 +2*16*5+5*16*10> Math.abs(thePanel.dy)){
+                            initIowaMoney();
+                        }
                     }
                 } 
             } else if(state == 2){
@@ -87,9 +89,11 @@ public class MainFrame extends JFrame{
             } else if(state == 6){
                 if(System.currentTimeMillis()/1000 > questionDelay){
                     initNationalQuestion();
-                } if(nationalPanel.background.extras.get(0).x-screenSize.getWidth()/2 +16*5< Math.abs(nationalPanel.dx) && nationalPanel.background.extras.get(0).x-screenSize.getWidth()/2 +16*5+5*16*20> Math.abs(nationalPanel.dx)){
-                    if(nationalPanel.background.extras.get(0).y-screenSize.getWidth()/2 +3*16*5< Math.abs(nationalPanel.dy) && nationalPanel.background.extras.get(0).y-screenSize.getWidth()/2 +5*16*20-16*10*2> Math.abs(nationalPanel.dy)){
-                        initNationMoney();
+                } if(cash > 5000){
+                    if(nationalPanel.background.extras.get(0).x-screenSize.getWidth()/2 +16*5< Math.abs(nationalPanel.dx) && nationalPanel.background.extras.get(0).x-screenSize.getWidth()/2 +16*5+5*16*20> Math.abs(nationalPanel.dx)){
+                        if(nationalPanel.background.extras.get(0).y-screenSize.getWidth()/2 +3*16*5< Math.abs(nationalPanel.dy) && nationalPanel.background.extras.get(0).y-screenSize.getWidth()/2 +5*16*20-16*10*2> Math.abs(nationalPanel.dy)){
+                            initNationMoney();
+                        }
                     }
                 } 
             } else if(state == 7){

@@ -39,7 +39,7 @@ public class MainFrame extends JFrame{
                     initQuestion();
                 } if(thePanel.background.extras.get(0).x-screenSize.getWidth()/2 +16*5< Math.abs(thePanel.dx) && thePanel.background.extras.get(0).x-screenSize.getWidth()/2 +16*5+5*16*10> Math.abs(thePanel.dx)){
                     if(thePanel.background.extras.get(0).y-screenSize.getWidth()/2 +3*16*5< Math.abs(thePanel.dy) && thePanel.background.extras.get(0).y-screenSize.getWidth()/2 +2*16*5+5*16*10> Math.abs(thePanel.dy)){
-                        System.out.println("Transition");
+                        BossFight boss = new BossFight(3);
                     }
                 } 
             } else if(state == 2){

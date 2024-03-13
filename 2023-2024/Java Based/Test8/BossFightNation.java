@@ -5,7 +5,7 @@ import java.util.*;
 
 import javax.swing.*;
 
-class BossFight extends JPanel{
+class BossFightNation extends JPanel{
     Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
     String text;
     boolean done = false;
@@ -15,7 +15,7 @@ class BossFight extends JPanel{
     private JLabel finalResult;
     int cash;
     int[] playerCash;
-    public BossFight(int difficulty, int[] playerCash){
+    public BossFightNation(int difficulty, int[] playerCash){
         this.playerCash = playerCash;
         removeAll();
         if(difficulty == 1){
@@ -38,8 +38,8 @@ class BossFight extends JPanel{
             cashVals.add(values.get(i+1) - values.get(i));
         }
         Collections.shuffle(cashVals);
-        resultBoss = new JLabel(String.format("Competitor distributions: %12d%12d%12d%12d%12d%12d", cashVals.toArray()), SwingConstants.CENTER);
-        resultPlayer = new JLabel(String.format("    Player distributions: %12d%12d%12d%12d%12d%12d", playerCash[0], playerCash[1], playerCash[2], playerCash[3], playerCash[4], playerCash[5]),SwingConstants.CENTER);
+        resultBoss = new JLabel(String.format("Competitor distributions: %12d%12d%12d%12d%12d", cashVals.toArray()), SwingConstants.CENTER);
+        resultPlayer = new JLabel(String.format("    Player distributions: %12d%12d%12d%12d%12d", playerCash[0], playerCash[1], playerCash[2], playerCash[3], playerCash[4]),SwingConstants.CENTER);
         setLayout(null);
         setSize(screenSize);
         resultBoss.setBounds((int) screenSize.getWidth()/80, (int) screenSize.getHeight ()/10, (int) screenSize.getWidth()*39/40, (int) screenSize.getHeight()/5);
@@ -49,13 +49,13 @@ class BossFight extends JPanel{
         add(resultBoss);
         add(resultPlayer);
         int wonDistricts = 0;
-        for(var i = 0; i < 6; i++){
+        for(var i = 0; i < 5; i++){
             if(cashVals.get(i) < playerCash[i]){
                 wonDistricts += 1;
             }
         }
         if(wonDistricts >= 3){
-            finalResult = new JLabel("You have won more than three districts, and\n have gained enough influence to compete at the national level!", SwingConstants.CENTER);
+            finalResult = new JLabel("You have won more than three areas, and now FBLA is the greatest business club in America!", SwingConstants.CENTER);
             finalResult.setBounds((int) screenSize.getWidth()/80, (int) screenSize.getHeight ()*4/10, (int) screenSize.getWidth()*39/40, (int) screenSize.getHeight()/5);
             finalResult.setFont(new Font("Courier New", Font.PLAIN, 15));
             done = true;

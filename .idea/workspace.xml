@@ -5,15 +5,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="17084cfe-8e17-4d93-9eb4-3ed0699945e8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/2023-2024/Java Based/Test5 - Copy/ImageTestFrame.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/2023-2024/Java Based/Test5 - Copy/ImageTestViewer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/HTMLFBLA.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/HTMLFBLA.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2023-2024/Java Based/Test4/ImageTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/2023-2024/Java Based/Test4/ImageTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2023-2024/Java Based/Test5 - Copy/ButtonFrame.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/2023-2024/Java Based/Test5 - Copy/ButtonViewer.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/2023-2024/Java Based/Test5 - Copy/ImageTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/2023-2024/Java Based/Test5 - Copy/ImageTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2023-2024/Java Based/Test5 - Copy/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/2023-2024/Java Based/Test5 - Copy/MainFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2023-2024/Java Based/Test5 - Copy/ImageTestFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/2023-2024/Java Based/Test5 - Copy/ImageTestFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HTMLFBLA/Assets.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HTMLFBLA/Background.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HTMLFBLA/ButtonTest$myListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HTMLFBLA/ButtonTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HTMLFBLA/Frame.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HTMLFBLA/ImageTest$TimerListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HTMLFBLA/ImageTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HTMLFBLA/ImageTestFrame$myListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HTMLFBLA/ImageTestFrame.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HTMLFBLA/ImageTestViewer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HTMLFBLA/InfoPanel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HTMLFBLA/MainFrame$myListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HTMLFBLA/MainFrame.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HTMLFBLA/MainPanel$MyKeyListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HTMLFBLA/MainPanel$myTimerListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HTMLFBLA/MainPanel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HTMLFBLA/Person$TimerListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HTMLFBLA/Person.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HTMLFBLA/QuizFramework$myListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HTMLFBLA/QuizFramework.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HTMLFBLA/QuizViewer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HTMLFBLA/Viewer.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

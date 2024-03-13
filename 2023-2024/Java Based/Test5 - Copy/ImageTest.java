@@ -18,11 +18,12 @@ public class ImageTest extends JPanel{
     Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
     BufferedImage iowa;
     BufferedImage national;
-    int beginCash = mainFrame.getCash();
+    int cash;
+    int newCash;
 
     private int[] iowaMoney = new int[6];
     private int[] nationalMoney = new int[5];
-    private JLabel instructions = new JLabel("Money Remaining: " + beginCash);
+    private JLabel instructions = new JLabel("Money Remaining: " + cash);
     private JLabel money = null;
     private JLabel district1 = new JLabel("District 1:");
     private JLabel district2 = new JLabel("District 2:");
@@ -36,6 +37,8 @@ public class ImageTest extends JPanel{
     private JTextField tf4 = new JTextField();
     private JTextField tf5 = new JTextField();
     private JTextField tf6 = new JTextField();
+    private JButton submit = new JButton("Submit");
+
     {
         try {
             iowa = ImageIO.read(new File("Iowa.png"));
@@ -44,35 +47,62 @@ public class ImageTest extends JPanel{
             throw new RuntimeException(e);
         }
     }
+    class buttonListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            if (e.getSource() instanceof JButton) {
+                String butSrcTxt = e.getActionCommand();
+                if (butSrcTxt.equals("Submit")) {
+                    if(newCash < 0){
+                        JOptionPane.showMessageDialog(new JFrame(),"Negative money remaining");
+                    } else if((tf1.getText().equals("")||tf2.getText().equals("")||tf3.getText().equals("")||tf4.getText().equals("")||tf5.getText().equals("")||tf6.getText().equals(""))){
+                        JOptionPane.showMessageDialog(new JFrame(),"One or more districts unanswered");
+                    } else{
+                        iowaMoney[0] = Integer.parseInt(tf1.getText());
+                        iowaMoney[1] = Integer.parseInt(tf2.getText());
+                        iowaMoney[2] = Integer.parseInt(tf3.getText());
+                        iowaMoney[3] = Integer.parseInt(tf4.getText());
+                        iowaMoney[4] = Integer.parseInt(tf5.getText());
+                        iowaMoney[5] = Integer.parseInt(tf6.getText());
+                        //CHANGE STATE
+                        state = -1;
+                        drawResults();
+                        repaint();
+                    }
+                }
+            }
+        }
+    }
     class TimerListener implements ActionListener{
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            int cash = beginCash;
+            newCash = cash;
             if(!tf1.getText().equals("")){
-                cash -= Integer.parseInt(tf1.getText());
+                newCash -= Integer.parseInt(tf1.getText());
             }
             if(!tf2.getText().equals("")){
-                cash -= Integer.parseInt(tf2.getText());
+                newCash -= Integer.parseInt(tf2.getText());
             }
             if(!tf3.getText().equals("")){
-                cash -= Integer.parseInt(tf3.getText());
+                newCash -= Integer.parseInt(tf3.getText());
             }
             if(!tf4.getText().equals("")){
-                cash -= Integer.parseInt(tf4.getText());
+                newCash -= Integer.parseInt(tf4.getText());
             }
             if(!tf5.getText().equals("")){
-                cash -= Integer.parseInt(tf5.getText());
+                newCash -= Integer.parseInt(tf5.getText());
             }
             if(!tf6.getText().equals("")){
-                cash -= Integer.parseInt(tf6.getText());
+                newCash -= Integer.parseInt(tf6.getText());
             }
 
-            instructions.setText("Money Remaining: " + cash);
+            instructions.setText("Money Remaining: " + newCash);
             repaint();
         }
 
     }
+    buttonListener buttonL = new buttonListener();
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         //iowa.
@@ -81,13 +111,13 @@ public class ImageTest extends JPanel{
         if(state == 0){
             g.drawImage(iowa, iowaX, iowaY, iowa.getWidth()/2,iowa.getHeight()/2, this);
         }
-
     }
     JLabel nationalLabel = new JLabel(new ImageIcon("national.png"));
 
 
-    public ImageTest(int state){
+    public ImageTest(int state, int cash){
         this.state = state;
+        this.cash = cash;
         setLayout(null);
         if(state == 0){
             drawIowa();
@@ -99,6 +129,9 @@ public class ImageTest extends JPanel{
         TimerListener listener = new TimerListener();
         Timer timer = new Timer(1, listener);
         timer.start();
+    }
+    public void drawResults(){
+        removeAll();
     }
     public void drawIowa(){
         instructions.setBounds((int)screenSize.getWidth()/2, 0, 1000, 100);
@@ -127,6 +160,9 @@ public class ImageTest extends JPanel{
         tf5.setFont(new Font("Serif", Font.PLAIN, 25));
         tf6.setBounds((int)screenSize.getWidth()/2 + 250, (int) screenSize.getHeight()*6/8 + 25, 250, 50);
         tf6.setFont(new Font("Serif", Font.PLAIN, 25));
+        submit.setBounds((int)screenSize.getWidth()/2 + 400, 25, 150, 50);
+        submit.addActionListener(buttonL);
+        add(submit);
         add(tf1);
         add(tf2);
         add(tf3);

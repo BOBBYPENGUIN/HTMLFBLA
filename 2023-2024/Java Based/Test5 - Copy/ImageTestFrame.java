@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 
 public class ImageTestFrame extends JFrame{
-    ImageTest image = new ImageTest(0);
+    ImageTest image = new ImageTest(0, 1000);
     class myListener implements ActionListener{
 
         @Override

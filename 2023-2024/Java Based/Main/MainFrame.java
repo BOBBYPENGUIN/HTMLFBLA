@@ -21,6 +21,7 @@ public class MainFrame extends JFrame{
     private BossFightNation nationShowdown;
     private boolean initStatus[] = {false};
     private long questionDelay;
+    long startTime;
     private InfoPanel cashLabel;
     Random rand = new Random();
     int state = 0;
@@ -35,6 +36,7 @@ public class MainFrame extends JFrame{
         public void actionPerformed(ActionEvent e) {
             if(state == 0){
                 if(homepage.getState() != 0){
+                    startTime = System.currentTimeMillis();
                     difficulty = homepage.getState();
                     initWorld();
                 }
@@ -203,7 +205,7 @@ public class MainFrame extends JFrame{
     }
     public void initNationShowdown(){
         state = 10;
-        nationShowdown = new BossFightNation(difficulty, nationState.getMoney());
+        nationShowdown = new BossFightNation(difficulty, nationState.getMoney(),startTime, iowaShowdown.getDistricts());
         setContentPane(nationShowdown);
         revalidate();
         repaint(); 

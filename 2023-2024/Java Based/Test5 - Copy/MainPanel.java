@@ -11,7 +11,7 @@ public class MainPanel extends JPanel{
     public int dx, dy;
     private int backgroundWidth = 60;
     private int backgroundHeight = 20;
-    Background background = new Background(backgroundWidth, backgroundHeight);
+    NationalBackground background = new NationalBackground(backgroundWidth, backgroundHeight);
     Person person = new Person((int)screenSize.getWidth()/2, (int)screenSize.getHeight()/2, 5);
     class myTimerListener implements ActionListener {
 

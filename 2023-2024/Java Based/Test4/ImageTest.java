@@ -8,8 +8,10 @@ import java.util.ArrayList;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
+import static com.sun.java.accessibility.util.AWTEventMonitor.addActionListener;
+
 public class ImageTest extends JPanel{
-    private int x, y;
+
     private int state = 0;
 
     private JTextField textField = new JTextField();
@@ -21,6 +23,14 @@ public class ImageTest extends JPanel{
 
     private int[] iowaMoney = new int[6];
     private int[] nationalMoney = new int[5];
+    private JLabel instructions = new JLabel("Enter money in districts: ");
+    private JLabel money = null;
+    private JLabel district1 = new JLabel("District 1:");
+    private JLabel district2 = new JLabel("District 2:");
+    private JLabel district3 = new JLabel("District 3:");
+    private JLabel district4 = new JLabel("District 4:");
+    private JLabel district5 = new JLabel("District 5:");
+    private JLabel district6 = new JLabel("District 6:");
 
     {
         try {
@@ -30,71 +40,65 @@ public class ImageTest extends JPanel{
             throw new RuntimeException(e);
         }
     }
-    public void paintComponent(Graphics g) {
 
+    public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        g.drawImage(iowa, (int)screenSize.getWidth()/4, (int)screenSize.getHeight()/4,this);
+        //iowa.
+        int iowaX = (this.getWidth()/2 - iowa.getWidth(null)/2)/2;
+        int iowaY = (this.getHeight() - iowa.getHeight(null)/2)/2;
+        if(state == 0){
+            g.drawImage(iowa, iowaX, iowaY, iowa.getWidth()/2,iowa.getHeight()/2, this);
+        }
+
     }
     JLabel nationalLabel = new JLabel(new ImageIcon("national.png"));
 
 
     public ImageTest(int state){
-        textField.setBounds(50,50,150,20);
-        setSize(screenSize);
-        addMouseListener(listen);
-        add(textField);
+        this.state = state;
+        textField.setBounds((int)screenSize.getWidth()/2,(int)screenSize.getHeight()/2,(int)screenSize.getWidth()/6, (int)screenSize.getHeight()/10);
         setLayout(null);
+        if(state == 0){
+            drawIowa();
+        }
+        else if(state == 1){
+            //drawNational();
+        }
+        setSize(screenSize);
     }
-    class myListener implements MouseListener{
-
+    class myListener implements ActionListener {
         @Override
-        public void mouseClicked(MouseEvent e) {
-            int color = iowa.getRGB((int)(e.getX()-(screenSize.getWidth() - iowa.getWidth())/2), e.getY());
-            System.out.println(iowa.getWidth());
-            // Components will be in the range of 0..255:
-            int blue = color & 0xff;
-            int green = (color & 0xff00) >> 8;
-            int red = (color & 0xff0000) >> 16;
-            System.out.println(color);
-            System.out.println("red: "+ red + ",green: " + green + ",blue: " + blue);
-            if(state == 0){
-                if(red ==  37 && green == 55 && blue == 123){
-                    textField.setVisible(true);
-                    //iowaMoney[0] = Integer.parseInt(textField.getText());
-                }else if(red == 46 && green == 88 && blue == 167){
-                    iowaMoney[1] = Integer.parseInt(textField.getText());
-                }else if(red == 245 && green == 171 && blue == 27){
-                    iowaMoney[2] = Integer.parseInt(textField.getText());
-                }else if(red == 154 && green == 149 && blue == 149){
-                    iowaMoney[3] = Integer.parseInt(textField.getText());
-                }else if(red == 60 && green == 106 && blue == 179){
-                    iowaMoney[4] = Integer.parseInt(textField.getText());
-                }else if(red == 85 && green == 81 && blue == 80){
-                    iowaMoney[5] = Integer.parseInt(textField.getText());
+        public void actionPerformed(ActionEvent e) {
+            if (e.getSource() instanceof JButton) {
+                String butSrcTxt = e.getActionCommand();
+                if (butSrcTxt.equals("Submit")) {
+                    //drawResults();
+                    repaint();
                 }
-            } else if(state == 1){
-
             }
         }
-
-        @Override
-        public void mousePressed(MouseEvent e) {
-
-        }
-
-        @Override
-        public void mouseReleased(MouseEvent e) {
-
-        }
-
-        @Override
-        public void mouseEntered(MouseEvent e) {
-
-        }
-
-        @Override
-        public void mouseExited(MouseEvent e) {
-
-        }
+    }
+    public void drawIowa(){
+        instructions.setBounds((int)screenSize.getWidth()/2, 0, 1000, 100);
+        instructions.setFont(new Font("Serif", Font.PLAIN, 30));
+        district1.setBounds((int)screenSize.getWidth()/2, (int) screenSize.getHeight()*1/8, 1000, 100);
+        district1.setFont(new Font("Serif", Font.PLAIN, 25));
+        district2.setBounds((int)screenSize.getWidth()/2, (int) screenSize.getHeight()*2/8, 1000, 100);
+        district2.setFont(new Font("Serif", Font.PLAIN, 25));
+        district3.setBounds((int)screenSize.getWidth()/2, (int) screenSize.getHeight()*3/8, 1000, 100);
+        district3.setFont(new Font("Serif", Font.PLAIN, 25));
+        district4.setBounds((int)screenSize.getWidth()/2, (int) screenSize.getHeight()*4/8, 1000, 100);
+        district4.setFont(new Font("Serif", Font.PLAIN, 25));
+        district5.setBounds((int)screenSize.getWidth()/2, (int) screenSize.getHeight()*5/8, 1000, 100);
+        district5.setFont(new Font("Serif", Font.PLAIN, 25));
+        district6.setBounds((int)screenSize.getWidth()/2, (int) screenSize.getHeight()*6/8, 1000, 100);
+        district6.setFont(new Font("Serif", Font.PLAIN, 25));
+        add(instructions);
+        add(district1);
+        add(district2);
+        add(district3);
+        add(district4);
+        add(district5);
+        add(district6);
     }
 }

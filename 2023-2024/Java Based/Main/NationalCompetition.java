@@ -19,6 +19,7 @@ public class NationalCompetition extends JPanel{
     BufferedImage national;
     int cash;
     int newCash;
+    int difficulty;
     private int[] nationalMoney = new int[5];
     private JLabel instructions = new JLabel("Money Remaining: " + cash);
     private JLabel district1 = new JLabel("Eastern Region (Purple):");
@@ -32,6 +33,8 @@ public class NationalCompetition extends JPanel{
     private JTextField tf4 = new JTextField();
     private JTextField tf5 = new JTextField();
     private JButton submit = new JButton("Submit");
+    private JLabel bossMoney = new JLabel("Competitor Money:");
+
 
     {
         try {
@@ -101,8 +104,9 @@ public class NationalCompetition extends JPanel{
     JLabel nationalLabel = new JLabel(new ImageIcon("national.png"));
 
 
-    public NationalCompetition(int cash){
+    public NationalCompetition(int cash, int difficulty){
         this.cash = cash;
+        this.difficulty = difficulty;
         setLayout(null);
         if(state == 0){
             drawIowa();
@@ -143,6 +147,15 @@ public class NationalCompetition extends JPanel{
         tf5.setFont(new Font("Serif", Font.PLAIN, 25));
         submit.setBounds((int)screenSize.getWidth()/2 + 400, 25, 150, 50);
         submit.addActionListener(buttonL);
+        bossMoney.setBounds(50,0,1000,100);
+        if(difficulty == 1){
+            bossMoney.setText("Competitor Money: " + 10000);
+        }else if(difficulty == 2){
+            bossMoney.setText("Competitor Money: " + 20000);
+        }else if(difficulty == 3){
+            bossMoney.setText("Competitor Money: " + 30000);
+        }
+        bossMoney.setFont(new Font("Serif", Font.PLAIN, 25));
         add(submit);
         add(tf1);
         add(tf2);

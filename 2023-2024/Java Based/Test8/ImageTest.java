@@ -20,6 +20,7 @@ public class ImageTest extends JPanel{
     BufferedImage national;
     int cash;
     int newCash;
+    int difficulty;
 
     private int[] iowaMoney = new int[6];
     private JLabel instructions = new JLabel("Money Remaining: " + cash);
@@ -29,6 +30,7 @@ public class ImageTest extends JPanel{
     private JLabel district4 = new JLabel("District 4:");
     private JLabel district5 = new JLabel("District 5:");
     private JLabel district6 = new JLabel("District 6:");
+    private JLabel bossMoney = new JLabel("Competitor Money:");
     private JTextField tf1 = new JTextField();
     private JTextField tf2 = new JTextField();
     private JTextField tf3 = new JTextField();
@@ -110,8 +112,9 @@ public class ImageTest extends JPanel{
     JLabel nationalLabel = new JLabel(new ImageIcon("national.png"));
 
 
-    public ImageTest(int cash){
+    public ImageTest(int cash, int difficulty){
         this.cash = cash;
+        this.difficulty = difficulty;
         setLayout(null);
         if(state == 0){
             drawIowa();
@@ -139,6 +142,15 @@ public class ImageTest extends JPanel{
         district5.setFont(new Font("Serif", Font.PLAIN, 25));
         district6.setBounds((int)screenSize.getWidth()/2, (int) screenSize.getHeight()*6/8, 1000, 100);
         district6.setFont(new Font("Serif", Font.PLAIN, 25));
+        bossMoney.setBounds(0,0,1000,100);
+        if(difficulty == 1){
+            bossMoney.setText("Competitor Money: " + 10000);
+        }else if(difficulty == 2){
+            bossMoney.setText("Competitor Money: " + 20000);
+        }else if(difficulty == 3){
+            bossMoney.setText("Competitor Money: " + 300000);
+        }
+        bossMoney.setFont(new Font("Serif", Font.PLAIN, 25));
         tf1.setBounds((int)screenSize.getWidth()/2 + 250, (int) screenSize.getHeight()*1/8 + 25, 250, 50);
         tf1.setFont(new Font("Serif", Font.PLAIN, 25));
         tf2.setBounds((int)screenSize.getWidth()/2 + 250, (int) screenSize.getHeight()*2/8 + 25, 250, 50);
@@ -153,6 +165,7 @@ public class ImageTest extends JPanel{
         tf6.setFont(new Font("Serif", Font.PLAIN, 25));
         submit.setBounds((int)screenSize.getWidth()/2 + 400, 25, 150, 50);
         submit.addActionListener(buttonL);
+        add(bossMoney);
         add(submit);
         add(tf1);
         add(tf2);

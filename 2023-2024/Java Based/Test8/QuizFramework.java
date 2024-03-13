@@ -108,7 +108,7 @@ class QuizFramework extends JPanel{
     public void drawAnswer(){
         removeAll();
         result.setBounds((int) screenSize.getWidth()/5, (int) screenSize.getHeight ()/10, (int) screenSize.getWidth()*3/5, (int) screenSize.getHeight()/5);
-        result.setFont(new Font("Serif", Font.PLAIN, 50));
+        result.setFont(new Font("Serif", Font.PLAIN, 20));
         if(state == 2){
             result.setText("Correct!");
         } else {

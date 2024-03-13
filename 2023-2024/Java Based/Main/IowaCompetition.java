@@ -9,9 +9,7 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 
 import static com.sun.java.accessibility.util.AWTEventMonitor.addActionListener;
-/**
- * Creates a framework for allowing User Input to divide money
- */
+
 public class IowaCompetition extends JPanel{
     MainFrame mainFrame = new MainFrame();
 
@@ -22,15 +20,17 @@ public class IowaCompetition extends JPanel{
     BufferedImage national;
     int cash;
     int newCash;
+    int difficulty;
 
     private int[] iowaMoney = new int[6];
-    private JLabel instructions = new JLabel("Divide your money among the district. Your goal is to invest more money than your opponent into at least three districts. Money Remaining: " + cash);
+    private JLabel instructions = new JLabel("Money Remaining: " + cash);
     private JLabel district1 = new JLabel("District 1:");
     private JLabel district2 = new JLabel("District 2:");
     private JLabel district3 = new JLabel("District 3:");
     private JLabel district4 = new JLabel("District 4:");
     private JLabel district5 = new JLabel("District 5:");
     private JLabel district6 = new JLabel("District 6:");
+    private JLabel bossMoney = new JLabel("Competitor Money:");
     private JTextField tf1 = new JTextField();
     private JTextField tf2 = new JTextField();
     private JTextField tf3 = new JTextField();
@@ -112,8 +112,9 @@ public class IowaCompetition extends JPanel{
     JLabel nationalLabel = new JLabel(new ImageIcon("national.png"));
 
 
-    public IowaCompetition(int cash){
+    public IowaCompetition(int cash, int difficulty){
         this.cash = cash;
+        this.difficulty = difficulty;
         setLayout(null);
         if(state == 0){
             drawIowa();
@@ -140,7 +141,16 @@ public class IowaCompetition extends JPanel{
         district5.setBounds((int)screenSize.getWidth()/2, (int) screenSize.getHeight()*5/8, 1000, 100);
         district5.setFont(new Font("Serif", Font.PLAIN, 25));
         district6.setBounds((int)screenSize.getWidth()/2, (int) screenSize.getHeight()*6/8, 1000, 100);
-        district6.setFont(new Font("Serif", Font.PLAIN, 25));
+        district6.setFont(new Font("Serif", Font.PLAIN, 30));
+        bossMoney.setBounds(50,0,1000,100);
+        if(difficulty == 1){
+            bossMoney.setText("Competitor Money: " + 10000);
+        }else if(difficulty == 2){
+            bossMoney.setText("Competitor Money: " + 20000);
+        }else if(difficulty == 3){
+            bossMoney.setText("Competitor Money: " + 30000);
+        }
+        bossMoney.setFont(new Font("Serif", Font.PLAIN, 25));
         tf1.setBounds((int)screenSize.getWidth()/2 + 250, (int) screenSize.getHeight()*1/8 + 25, 250, 50);
         tf1.setFont(new Font("Serif", Font.PLAIN, 25));
         tf2.setBounds((int)screenSize.getWidth()/2 + 250, (int) screenSize.getHeight()*2/8 + 25, 250, 50);
@@ -155,6 +165,7 @@ public class IowaCompetition extends JPanel{
         tf6.setFont(new Font("Serif", Font.PLAIN, 25));
         submit.setBounds((int)screenSize.getWidth()/2 + 400, 25, 150, 50);
         submit.addActionListener(buttonL);
+        add(bossMoney);
         add(submit);
         add(tf1);
         add(tf2);

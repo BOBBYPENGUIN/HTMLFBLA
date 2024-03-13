@@ -22,7 +22,7 @@ class QuizFramework extends JPanel{
             }
             drawAnswer();
         }
-        
+
     }
     ArrayList<String> questions = new ArrayList<>();
     ArrayList<ArrayList<String>> answers = new ArrayList<ArrayList<String>>();
@@ -51,7 +51,7 @@ class QuizFramework extends JPanel{
         removeAll();
         state = 1;
         question.setBounds((int) screenSize.getWidth()/5, (int) screenSize.getHeight ()/10, (int) screenSize.getWidth()*3/5, (int) screenSize.getHeight()/5);
-        question.setFont(new Font("Serif", Font.PLAIN, 50));
+        question.setFont(new Font("Serif", Font.PLAIN, 20));
         add(question);
         button1.setBounds((int) screenSize.getWidth()/10, (int) screenSize.getHeight ()/3, (int) screenSize.getWidth()*3/10, (int) screenSize.getHeight()/5);
         button1.addActionListener(listen);
@@ -81,9 +81,25 @@ class QuizFramework extends JPanel{
         this.answers.add(tempAns);
         this.realAnswers.add(realAnswer);
     }
-    public void addQuestions(){
+    public void addQuestions() {
         addQuestion("When was FBLA founded?", "2020", "1999", "1956", "1937", 3);
-        addQuestion("Is the letter A:", "A", "B", "C", "D", 0);
+        addQuestion("Which one of the following statements is part of the FBLA Code of Ethics?", "I will facilitate the transition from school to work.", "I will assist students in the establishment of occupational goals.", "I will promote business education to every person.", "I will willingly accept responsibilities and duties.", 3);
+        addQuestion("Which one of the following statements is part of the FBLA Code of Ethics?", "I will abide by the rules and regulations of my school.", "I will practice efficient money management.", "I will create more interest in and understanding of American business enterprise.", "I will facilitate the transition from school to work.", 0);
+        addQuestion("One of the FBLA goals is to:", "develop the qualities necessary in becoming a responsible business leader", " create more interest in and understanding of American business enterprise", "cooperate with my employer and fellow workers", "facilitate the transition from school to post secondary education", 1);
+        addQuestion("Which event can be taken by 11th and 12th grade FBLA members?", "Introduction to Business", "Business Calculations", "Introduction to Financial Math", "Introduction to Business Presentation", 1);
+        addQuestion("If your local FBLA chapter has over 100 members, how many voting delegates is it given at the FBLA National Leadership Conference?", "5", "8", "10", "4", 3);
+        addQuestion("In February of 1942, the first high school chapter of FBLA was chartered in:", "Dubuque, IA", "New York City, NY", "Kansas City, MO", "Johnson City, TN", 3);
+        addQuestion("The FBLA goal is to strengthen the confidence of students in themselves and their:", "work", "school", "leadership", "careers", 0);
+        addQuestion("According to FBLA Creed, education is the right of:", "every FBLA member and adviser", "every person", "every FBLA member", "every student", 1);
+        addQuestion("Which one of the following is included in the FBLA code of conduct?", "avoid conduct conductive to an educational conference", "observe most of the curfews", "obey all local and federal laws", "behave in a courteous and respectful matter", 3);
+        addQuestion("Which of the following is a stanza of the FBLA Creed?", "I will do my best to uphold the aims and responsibilities of Future Business Leaders of America", "I believe education is the right of every person", "I promise to bring business and education together in a positive working relationship", "I shall strive to develop the qualities necessary in becoming a responsible business leader", 1);
+        addQuestion("Which one of the following is not a goal of FBLA-PBL?", "Facilitate the transition from school to work", "Create more interest in and understanding of the American business enterprise", "Encourage and practice efficient money management", "Encourage the development of proper time management skills", 3);
+        addQuestion("Which of the following is not included in the goals of FBLA-PBL?", "Develop strong business ethics", "Promote school loyalty", "Foster patriotism", "Develop competent business leadership", 0);
+        addQuestion("Which state was the first FBLA state chapter?", "North Carolina",  "Virginia", "Arkansas", "Iowa",3);
+        addQuestion("The FBLA-Middle Level Division was formed in what year?", "1989", "1992", "1994", "1998",2);
+        addQuestion("The name Future Business Leaders of America was selected in what year?", "1937", "1942", "1940", "1946",2)  ;
+        addQuestion("One of the stanzas of the FBLA Creed is:", "I promise to actively work toward improving social, political, community, and family life.", "I shall develop the qualities necessary to actively work toward improving social, political, community, and family life.","I will actively work toward improving social, political, community, and family life.", "I believe every person should actively work toward improving social, political, community, and family life",3);
+        addQuestion("The FBLA goal is to assist students in the establishment of:", "leadership qualities","school loyalty", "occupational goals", "efficient money management",2);
     }
     public int getRandomQuestion(){
         Random rand = new Random();
@@ -92,7 +108,7 @@ class QuizFramework extends JPanel{
     public void drawAnswer(){
         removeAll();
         result.setBounds((int) screenSize.getWidth()/5, (int) screenSize.getHeight ()/10, (int) screenSize.getWidth()*3/5, (int) screenSize.getHeight()/5);
-        result.setFont(new Font("Serif", Font.PLAIN, 50));
+        result.setFont(new Font("Serif", Font.PLAIN, 20));
         if(state == 2){
             result.setText("Correct!");
         } else {

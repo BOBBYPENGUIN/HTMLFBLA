@@ -28,7 +28,7 @@ public class MainFrame extends JFrame{
     Random rand = new Random();
     int state = 0;
     int questionStatus = 0;
-    int cash = 100000;
+    int cash = 0;
     int difficulty;
     private IowaPanel thePanel;
     private NationalPanel nationalPanel;
@@ -212,7 +212,7 @@ public class MainFrame extends JFrame{
      */
     public void initIowaMoney(){
         state = 4;
-        iowaState = new IowaCompetition(cash);
+        iowaState = new IowaCompetition(cash, difficulty);
         setContentPane(iowaState);
         revalidate();
         repaint(); 
@@ -222,7 +222,7 @@ public class MainFrame extends JFrame{
      */
     public void initNationMoney(){
         state = 9;
-        nationState = new NationalCompetition(cash);
+        nationState = new NationalCompetition(cash, difficulty);
         setContentPane(nationState);
         revalidate();
         repaint(); 

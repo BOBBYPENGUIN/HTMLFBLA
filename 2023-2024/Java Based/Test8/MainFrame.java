@@ -160,7 +160,7 @@ public class MainFrame extends JFrame{
     }
     public void initIowaMoney(){
         state = 4;
-        iowaState = new ImageTest(cash);
+        iowaState = new ImageTest(cash, difficulty);
         setContentPane(iowaState);
         revalidate();
         repaint(); 

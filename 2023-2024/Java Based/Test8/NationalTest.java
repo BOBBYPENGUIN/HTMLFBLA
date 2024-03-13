@@ -157,4 +157,7 @@ public class NationalTest extends JPanel{
         add(district4);
         add(district5);
     }
+    public int[] getMoney(){
+        return nationalMoney;
+    }
 }

@@ -17,13 +17,14 @@ public class MainFrame extends JFrame{
     private ImageTest iowaState;
     private NationalTest nationState;
     private BossFight iowaShowdown;
+    private BossFightNation nationShowdown;
     private boolean initStatus[] = {false};
     private long questionDelay;
     private InfoPanel cashLabel;
     Random rand = new Random();
     int state = 0;
     int questionStatus = 0;
-    int cash = 1000000;
+    int cash = 0;
     int difficulty;
     private MainPanel thePanel;
     private MainPanel nationalPanel;
@@ -82,9 +83,9 @@ public class MainFrame extends JFrame{
                 }
             } else if(state == 6){
                 if(System.currentTimeMillis()/1000 > questionDelay){
-                    initQuestion();
-                } if(thePanel.background.extras.get(0).x-screenSize.getWidth()/2 +16*5< Math.abs(thePanel.dx) && thePanel.background.extras.get(0).x-screenSize.getWidth()/2 +16*5+5*16*10> Math.abs(thePanel.dx)){
-                    if(thePanel.background.extras.get(0).y-screenSize.getWidth()/2 +3*16*5< Math.abs(thePanel.dy) && thePanel.background.extras.get(0).y-screenSize.getWidth()/2 +2*16*5+5*16*10> Math.abs(thePanel.dy)){
+                    initNationalQuestion();
+                } if(nationalPanel.background.extras.get(0).x-screenSize.getWidth()/2 +16*5< Math.abs(nationalPanel.dx) && nationalPanel.background.extras.get(0).x-screenSize.getWidth()/2 +16*5+5*16*10> Math.abs(nationalPanel.dx)){
+                    if(nationalPanel.background.extras.get(0).y-screenSize.getWidth()/2 +3*16*5< Math.abs(nationalPanel.dy) && nationalPanel.background.extras.get(0).y-screenSize.getWidth()/2 +2*16*5+5*16*10> Math.abs(nationalPanel.dy)){
                         System.out.println("National");
                         initNationMoney();
                     }
@@ -100,6 +101,8 @@ public class MainFrame extends JFrame{
                 if(nationState.state == -1){
                     initNationShowdown();
                 }
+            } else if(state == 9){
+
             }
             repaint();
         }
@@ -187,9 +190,9 @@ public class MainFrame extends JFrame{
         //thePanel.addKeyListener(thePanel.theKeyListener);
     }
     public void initNationShowdown(){
-        state = 8;
-        iowaShowdown = new BossFight(difficulty, iowaState.getMoney());
-        setContentPane(iowaShowdown);
+        state = 9;
+        nationShowdown = new BossFightNation(difficulty, nationState.getMoney());
+        setContentPane(nationShowdown);
         revalidate();
         repaint(); 
     }

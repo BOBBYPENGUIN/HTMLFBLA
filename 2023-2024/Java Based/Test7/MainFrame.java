@@ -14,13 +14,16 @@ public class MainFrame extends JFrame{
     Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
     private ButtonTest homepage;
     private QuizFramework question;
+    private ImageTest iowaState;
+    private BossFight iowaShowdown;
     private boolean initStatus[] = {false};
     private long questionDelay;
     private InfoPanel cashLabel;
     Random rand = new Random();
     int state = 0;
     int questionStatus = 0;
-    int cash = 0;
+    int cash = 1000000;
+    int difficulty;
     private MainPanel thePanel;
     class myListener implements ActionListener{
 
@@ -28,6 +31,7 @@ public class MainFrame extends JFrame{
         public void actionPerformed(ActionEvent e) {
             if(state == 0){
                 if(homepage.getState() != 0){
+                    difficulty = homepage.getState();
                     initWorld();
                 }
             } else if(state == 1){
@@ -39,7 +43,7 @@ public class MainFrame extends JFrame{
                     initQuestion();
                 } if(thePanel.background.extras.get(0).x-screenSize.getWidth()/2 +16*5< Math.abs(thePanel.dx) && thePanel.background.extras.get(0).x-screenSize.getWidth()/2 +16*5+5*16*10> Math.abs(thePanel.dx)){
                     if(thePanel.background.extras.get(0).y-screenSize.getWidth()/2 +3*16*5< Math.abs(thePanel.dy) && thePanel.background.extras.get(0).y-screenSize.getWidth()/2 +2*16*5+5*16*10> Math.abs(thePanel.dy)){
-                        BossFight boss = new BossFight(3);
+                        initIowaMoney();
                     }
                 } 
             } else if(state == 2){
@@ -62,10 +66,15 @@ public class MainFrame extends JFrame{
                 try {
                     Thread.sleep(2500);
                 } catch (InterruptedException b) {
-                    // TODO Auto-generated catch block
                     b.printStackTrace();
                 }
                 initWorld();
+            } else if(state == 4){
+                if(iowaState.state == -1){
+                    initIowaShowdown();
+                }
+            } else if(state == 5){
+
             }
             repaint();
         }
@@ -107,6 +116,20 @@ public class MainFrame extends JFrame{
     public void drawCashLabel(){
         cashLabel = new InfoPanel("You currently have: $" + Integer.toString(cash));
         setContentPane(cashLabel);
+        revalidate();
+        repaint(); 
+    }
+    public void initIowaMoney(){
+        state = 4;
+        iowaState = new ImageTest(cash);
+        setContentPane(iowaState);
+        revalidate();
+        repaint(); 
+    }
+    public void initIowaShowdown(){
+        state = 5;
+        iowaShowdown = new BossFight(difficulty, iowaState.getMoney());
+        setContentPane(iowaShowdown);
         revalidate();
         repaint(); 
     }

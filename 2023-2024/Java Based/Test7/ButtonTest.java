@@ -26,8 +26,12 @@ class ButtonTest extends JPanel{
                 } else if(butSrcTxt.equals("Back")){
                     drawMainScene();
                     repaint();
-                } else {
+                } else if(butSrcTxt.equals("Easy")){
                     state = 1;
+                }else if(butSrcTxt.equals("Medium")){
+                    state = 2;
+                }else if(butSrcTxt.equals("Hard")){
+                    state = 3;
                 }
             }
         }

@@ -21,11 +21,12 @@ public class MainFrame extends JFrame{
     private BossFightNation nationShowdown;
     private boolean initStatus[] = {false};
     private long questionDelay;
+    long startTime;
     private InfoPanel cashLabel;
     Random rand = new Random();
     int state = 0;
     int questionStatus = 0;
-    int cash = 1000000;
+    int cash = 100000;
     int difficulty;
     private MainPanel thePanel;
     private NationalPanel nationalPanel;
@@ -35,21 +36,24 @@ public class MainFrame extends JFrame{
         public void actionPerformed(ActionEvent e) {
             if(state == 0){
                 if(homepage.getState() != 0){
+                    startTime = System.currentTimeMillis();
                     difficulty = homepage.getState();
                     initWorld();
                 }
             } else if(state == 1){
                 if(System.currentTimeMillis()/1000 > questionDelay){
                     initQuestion();
-                } if(thePanel.background.extras.get(0).x-screenSize.getWidth()/2 +16*5< Math.abs(thePanel.dx) && thePanel.background.extras.get(0).x-screenSize.getWidth()/2 +16*5+5*16*10> Math.abs(thePanel.dx)){
-                    if(thePanel.background.extras.get(0).y-screenSize.getWidth()/2 +3*16*5< Math.abs(thePanel.dy) && thePanel.background.extras.get(0).y-screenSize.getWidth()/2 +2*16*5+5*16*10> Math.abs(thePanel.dy)){
-                        initIowaMoney();
+                } if(cash > 5000){
+                    if(thePanel.background.extras.get(0).x-screenSize.getWidth()/2 +16*5< Math.abs(thePanel.dx) && thePanel.background.extras.get(0).x-screenSize.getWidth()/2 +16*5+5*16*10> Math.abs(thePanel.dx)){
+                        if(thePanel.background.extras.get(0).y-screenSize.getWidth()/2 +3*16*5< Math.abs(thePanel.dy) && thePanel.background.extras.get(0).y-screenSize.getWidth()/2 +2*16*5+5*16*10> Math.abs(thePanel.dy)){
+                            initIowaMoney();
+                        }
                     }
                 } 
             } else if(state == 2){
                 if(question.state != 1){
                     if(question.state == 2){
-                        cash = (int) (cash + 1000 + Math.abs(thePanel.background.extras.get(0).x-screenSize.getWidth()/2 +16*5- Math.abs(nationalPanel.dx)));
+                        cash = (int) (cash + 1000 + Math.abs(thePanel.background.extras.get(0).x-screenSize.getHeight()/2 +16*5- Math.abs(thePanel.dx)) + Math.abs(thePanel.background.extras.get(0).y-screenSize.getWidth()/2 +16*5- Math.abs(thePanel.dy)));
                     }
                     repaint();
                     try {
@@ -85,9 +89,11 @@ public class MainFrame extends JFrame{
             } else if(state == 6){
                 if(System.currentTimeMillis()/1000 > questionDelay){
                     initNationalQuestion();
-                } if(nationalPanel.background.extras.get(0).x-screenSize.getWidth()/2 +16*5< Math.abs(nationalPanel.dx) && nationalPanel.background.extras.get(0).x-screenSize.getWidth()/2 +16*5+5*16*20> Math.abs(nationalPanel.dx)){
-                    if(nationalPanel.background.extras.get(0).y-screenSize.getWidth()/2 +3*16*5< Math.abs(nationalPanel.dy) && nationalPanel.background.extras.get(0).y-screenSize.getWidth()/2 +5*16*20-16*10*2> Math.abs(nationalPanel.dy)){
-                        initNationMoney();
+                } if(cash > 5000){
+                    if(nationalPanel.background.extras.get(0).x-screenSize.getWidth()/2 +16*5< Math.abs(nationalPanel.dx) && nationalPanel.background.extras.get(0).x-screenSize.getWidth()/2 +16*5+5*16*20> Math.abs(nationalPanel.dx)){
+                        if(nationalPanel.background.extras.get(0).y-screenSize.getWidth()/2 +3*16*5< Math.abs(nationalPanel.dy) && nationalPanel.background.extras.get(0).y-screenSize.getWidth()/2 +5*16*20-16*10*2> Math.abs(nationalPanel.dy)){
+                            initNationMoney();
+                        }
                     }
                 } 
             } else if(state == 7){
@@ -203,7 +209,7 @@ public class MainFrame extends JFrame{
     }
     public void initNationShowdown(){
         state = 10;
-        nationShowdown = new BossFightNation(difficulty, nationState.getMoney());
+        nationShowdown = new BossFightNation(difficulty, nationState.getMoney(),startTime, iowaShowdown.getDistricts());
         setContentPane(nationShowdown);
         revalidate();
         repaint(); 

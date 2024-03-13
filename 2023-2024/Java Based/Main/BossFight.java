@@ -14,6 +14,7 @@ class BossFight extends JPanel{
     private JLabel resultPlayer;
     private JLabel finalResult;
     int cash;
+    int wonDistricts;
     int[] playerCash;
     public BossFight(int difficulty, int[] playerCash){
         this.playerCash = playerCash;
@@ -48,7 +49,7 @@ class BossFight extends JPanel{
         resultPlayer.setFont(new Font("Courier New", Font.PLAIN, 20));
         add(resultBoss);
         add(resultPlayer);
-        int wonDistricts = 0;
+        wonDistricts = 0;
         for(var i = 0; i < 6; i++){
             if(cashVals.get(i) < playerCash[i]){
                 wonDistricts += 1;
@@ -66,6 +67,9 @@ class BossFight extends JPanel{
         }
         add(finalResult);
 
+    }
+    public int getDistricts(){
+        return wonDistricts;
     }
 
 }

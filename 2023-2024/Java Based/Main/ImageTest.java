@@ -22,7 +22,7 @@ public class ImageTest extends JPanel{
     int newCash;
 
     private int[] iowaMoney = new int[6];
-    private JLabel instructions = new JLabel("Money Remaining: " + cash);
+    private JLabel instructions = new JLabel("Divide your money among the district. Your goal is to invest more money than your opponent into at least three districts. Money Remaining: " + cash);
     private JLabel district1 = new JLabel("District 1:");
     private JLabel district2 = new JLabel("District 2:");
     private JLabel district3 = new JLabel("District 3:");

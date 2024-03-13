@@ -46,7 +46,7 @@ class ButtonTest extends JPanel{
     private JButton button2 = new JButton("Enter Game");
     private JButton backButton = new JButton("Back");
     private JLabel title = new JLabel("Journey", SwingConstants.CENTER);
-    private JLabel directions = new JLabel("Lorem ipsum");
+    private JTextArea directions = new JTextArea("Lorem ipsum");
     myListener listen = new myListener();
     public ButtonTest(int type, String text){
         this.type = type;
@@ -89,7 +89,9 @@ class ButtonTest extends JPanel{
         backButton.setBounds((int)(screenSize.getWidth()*4/5), (int)(screenSize.getHeight()*7/10), (int)(screenSize.getWidth()*3/20), (int)(screenSize.getWidth()*2/20));
         backButton.addActionListener(listen);
         directions.setBounds(100, (int) screenSize.getHeight()/3, 1000, 300);
-        directions.setText("Press Back");
+        directions.setText("Welcome, Mr. Forkner. Your dream of creating a coalition of business competitions is coming to fruitation, but faces harsh opposition from your competitors. Your first goal is to unite Iowa. Wander around, answer questions, and when ready, enter the building. Answering questions further away from the convention center gives more money. There, you decide how to invest your money among Iowa's districts to win at least three of them. Should you unite Iowa, your next step is our country. Good luck.\nNote that the difficulty decides how much money your competitor has. On easy, they have $5000, but on hard, they have $15000. Manage your time carefully. Your final score is determined by the amount of time it took to beat the game, modified by your difficulty level");
+        directions.setWrapStyleWord(true);
+        directions.setLineWrap(true);
         directions.setFont(new Font("Serif", Font.PLAIN, 25));
         title.setText("Instructions");
         add(backButton);

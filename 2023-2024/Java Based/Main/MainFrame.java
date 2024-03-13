@@ -100,6 +100,7 @@ public class MainFrame extends JFrame{
                         b.printStackTrace();
                     }
                     nationalPanel = new NationalPanel();
+                    cash = 0;
                     initNationalWorld();
                 }
             } else if(state == 6){

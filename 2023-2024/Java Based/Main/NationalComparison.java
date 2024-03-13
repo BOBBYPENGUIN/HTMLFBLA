@@ -22,11 +22,11 @@ class NationalComparison extends JPanel{
         this.playerCash = playerCash;
         removeAll();
         if(difficulty == 1){
-            cash = 30000;
+            cash = 10000;
         } else if(difficulty == 2){
-            cash = 40000;
+            cash = 20000;
         } else {
-            cash = 50000;
+            cash = 30000;
         }
         ArrayList<Integer> values = new ArrayList<>();
         Random rand = new Random();

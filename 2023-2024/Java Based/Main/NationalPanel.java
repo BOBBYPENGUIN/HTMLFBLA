@@ -37,7 +37,7 @@ public class NationalPanel extends JPanel{
                 if(keyStatus[68]){
                     person.setMoving(true);
                     person.setDirection(2);
-                    if(dx >= -(backgroundWidth-18)*16*10){
+                    if(dx >= -(backgroundWidth-18)*16*5){
                         background.translate(-5, 0);
                         dx += -5;
                     }

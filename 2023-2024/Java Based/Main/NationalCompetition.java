@@ -156,6 +156,7 @@ public class NationalCompetition extends JPanel{
             bossMoney.setText("Competitor Money: " + 30000);
         }
         bossMoney.setFont(new Font("Serif", Font.PLAIN, 25));
+        add(bossMoney);
         add(submit);
         add(tf1);
         add(tf2);
